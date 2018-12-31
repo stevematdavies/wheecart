@@ -1,0 +1,57 @@
+@import "../../../colors";
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  background-color: $gray;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+
+  &__logo {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+
+    &--main-text {
+      font-size: 4vw;
+      margin-right: 4rem;
+      font-family: "Pacifico", cursive;
+    }
+
+    &--sub-text {
+      font-size: 1.6vw;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+  }
+
+  &__menu {
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--title {
+      font-size: 1.6vw;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      margin-right: 1rem;
+    }
+
+    &--icon {
+      padding: 1rem;
+      margin-right: 1rem;
+
+      > svg {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+    }
+  }
+}
