@@ -21,6 +21,7 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.shoppingCartItems = this.shoppingCartService.getShoppingCart();
+    this.runningTotal = this.shoppingCartService.getShoppingCartTotal();
 
     this.eventService.shoppingCartUpdated
       .subscribe((cart: Product[]) => {
@@ -29,7 +30,12 @@ export class ShoppingCartComponent implements OnInit {
 
     this.eventService.shoppingCartTotalUpdated
       .subscribe((total: number) => {
+        console.log(total);
         this.runningTotal = total;
       });
+  }
+
+  getRunningTotal() {
+    return this.shoppingCartService.getShoppingCartTotal();
   }
 }

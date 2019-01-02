@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import _ from 'lodash';
-import { SessionStorage, SessionStorageService } from 'ngx-webstorage';
+import { LocalStorageService, SessionStorage, SessionStorageService } from 'ngx-webstorage';
 
 import { Product } from './../components/product/Product';
 import { EventService } from './event.service';
@@ -21,24 +21,26 @@ export class ShoppingCartService implements OnInit {
     SHOPPING_CART_TOTAL: 'shoppingCartTotal'
   };
 
-  constructor(private sessStor: SessionStorageService, private eventService: EventService) {
+  constructor(
+    private sessStor: SessionStorageService, private eventService: EventService,
+    private lclStorage: LocalStorageService) {
   }
 
   ngOnInit() {
   }
 
   $store(key: string, value: any) {
-    this.sessStor.store(key, value);
+    this.lclStorage.store(key, value);
   }
 
   $get(key: string) {
-    return this.sessStor.retrieve(key);
+    return this.lclStorage.retrieve(key);
   }
 
   initStorage() {
     this.$store('shoppingCart', JSON.stringify([]));
     this.$store('shoppingCartTotal', 0);
-    this.sessStor.observe('shoppingCart')
+    this.lclStorage.observe('shoppingCart')
     .subscribe((updatedCart) => {
       this.eventService.shoppingCartUpdated.emit(JSON.parse(updatedCart));
     });
@@ -48,6 +50,7 @@ export class ShoppingCartService implements OnInit {
     const cart = this.getShoppingCart();
     cart.unshift(product);
     this.$store('shoppingCart', JSON.stringify(cart));
+    this.eventService.shoppingCartUpdated.emit(cart);
     this.updateShoppingCartTotal(product.price, true);
   }
 

@@ -1,0 +1,28 @@
+@import './../../mixins';
+
+.shopping-cart-header {
+  position: absolute;
+  width:100%;
+  height:100%;
+  margin-top: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include actionFontLarge;
+
+  &__total {
+    margin-top: 5%;
+  }
+}
+
+.running-total {
+  @include actionFontSmall;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 2rem;
+
+  &__amount {
+    color: orange;
+    font-weight: 300;
+  }
+}

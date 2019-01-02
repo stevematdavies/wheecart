@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { EventService } from './services/event.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ShoppingCartService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

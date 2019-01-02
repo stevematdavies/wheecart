@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit() {
-    this.shoppingCartService.initStorage();
+    if (!this.shoppingCartService.getShoppingCart()) {
+      this.shoppingCartService.initStorage();
+    }
   }
 }

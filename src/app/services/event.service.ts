@@ -9,6 +9,6 @@ export class EventService {
 
   @Output() shoppingCartUpdated: EventEmitter<Product[]> = new EventEmitter<Product[]>();
   @Output() shoppingCartTotalUpdated: EventEmitter<number> = new EventEmitter<number>();
-
+  @Output() appModeChanged: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 }

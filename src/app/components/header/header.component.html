@@ -1,11 +1,26 @@
 <nav class="navbar navbar-default">
+
       <div class="navbar-header">
         <a class="navbar-brand title" href="#">whee</a>
       </div>
-      <p class="navbar-text navbar-right cart-menu">
-        <span>
-         <strong>{{shoppingCartItemCount}}</strong>
-        <i class="glyphicon glyphicon-shopping-cart"></i>
-      </span>
-      </p>
+
+      <div class="navbar-text navbar-right cart-menu">
+
+        <div class="menu-button shopping-cart" *ngIf="!shoppingCartView" (click)="navigateTo('cart')">
+            <span class="menu-button__action">View Shopping Cart</span>
+            <span class="menu-button__meta">
+              <i class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"></i>
+            </span>
+            <span
+              [class]="shoppingCartItemCount <= 0? 'menu-button__count empty': 'menu-button__count'">{{shoppingCartItemCount}}</span>
+          </div>
+
+          <div class="menu-button home" *ngIf="shoppingCartView" (click)="navigateTo('products')">
+              <span class="menu-button__action">Go to Products</span>
+              <span class="menu-button__meta">
+                <i class="glyphicon glyphicon-list menu-button__meta--icon"></i>
+              </span>
+            </div>
+
+      </div>
   </nav>

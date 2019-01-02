@@ -1,20 +1,32 @@
 <div class="shopping-cart">
+
   <div class="row">
     <div class="col-xs-12">
-        <div class="shopping-cart-header">
-            <h2 *ngIf="shoppingCartItems.length > 0">Your selected Items: Total price: {{runningTotal}}</h2>
-            <h2 *ngIf="!shoppingCartItems || shoppingCartItems.length < 1">You have no items in your basket</h2>
-          </div>
+      <div class="shopping-cart-header">
+              <div class="message" *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0">
+                Your shopping cart is Empty.  Click<a routerLink="/products">&nbsp;here</a>&nbsp;to add items.
+              </div>
+            </div>
+      </div>
+  </div>
+
+  <div class="row" *ngIf="shoppingCartItems.length > 0">
+    <div class="col-xs-12">
+      <div class="running-total">
+        <span class="running-total__amount">{{shoppingCartItems.length}}</span>
+        Items: Total price:  <span class="running-total__amount">{{runningTotal}}</span>
+      </div>
     </div>
   </div>
+
   <div class="row">
-      <div class="col-xs-12">
+    <div class="col-xs-12">
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let item of shoppingCartItems">
-             <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
-          </li>
-        </ul>
-      </div>
+            <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </div>

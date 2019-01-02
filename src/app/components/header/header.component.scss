@@ -5,5 +5,46 @@
 }
 
 .cart-menu {
-  margin-right: 1rem;
+  margin-right: 4rem;
+}
+
+.menu-button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid rgba(gray,0.3);
+  border-radius: 4px;
+  padding:6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+
+  > *:not(:last-child){
+    margin-right: .5rem;
+  }
+
+  &__meta {
+
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__count {
+    display: flex;
+    width: 1.6rem;
+    height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    font-size: x-small;
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+    transform: translate(2rem, -14px);
+
+    &.empty {
+      background-color: grey;
+      color: lightgray;
+    }
+  }
+
 }

@@ -1,0 +1,9 @@
+@mixin actionFontLarge {
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+@mixin actionFontSmall {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
