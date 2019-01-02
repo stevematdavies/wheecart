@@ -12,16 +12,24 @@ import { Product } from './../product/Product';
 export class ShoppingCartComponent implements OnInit {
 
   items: Product[];
+  runningTotal: number;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
     private eventService: EventService) { }
 
   ngOnInit() {
+
     this.items = this.shoppingCartService.getShoppingCart();
+
     this.eventService.shoppingCartUpdated
       .subscribe((cart: Product[]) => {
         this.items = cart;
+      });
+
+    this.eventService.shoppingCartTotalUpdated
+      .subscribe((total: number) => {
+        this.runningTotal = total;
       });
   }
 }
