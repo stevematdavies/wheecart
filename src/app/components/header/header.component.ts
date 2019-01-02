@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { EventService } from './../../services/event.service';
+import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { Product } from './../product/Product';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  shoppingCartItemCount: number;
+
+  shoppingCartItemAddedSubscription: null;
+
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private eventService: EventService) {
+
+  }
 
   ngOnInit() {
+    this.eventService.shoppingCartUpdated
+    .subscribe((cart: Product[]) => {
+      this.shoppingCartItemCount = cart.length;
+    });
   }
 
 }

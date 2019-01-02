@@ -1,0 +1,20 @@
+<div class="shopping-cart">
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="shopping-cart-header">
+            <h2 *ngIf="items.length > 0">Your selected Items</h2>
+            <h2 *ngIf="!items || items.length < 1">You have no items in your basket</h2>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of items">
+             <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+</div>

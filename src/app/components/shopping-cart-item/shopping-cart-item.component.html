@@ -1,0 +1,13 @@
+<div class="shopping-cart-item">
+  <div class="row">
+    <div class="col-xs-4">#thumb</div>
+    <div class="col-xs-2">{{item.name}}</div>
+    <div class="col-xs-2">{{item.description}}</div>
+    <div class="col-xs-2">price: {{item.price}}</div>
+    <div class="col-xs-2">
+      <button class="btn btn-danger" (click)="onRemoveFromCart()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>
