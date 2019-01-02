@@ -1,0 +1,11 @@
+@import './../../mixins';
+
+.product-header {
+  width: 100%;
+  margin-bottom: 2rem;
+  @include actionFontLarge;
+}
+
+.heavier {
+  font-weight: 300;
+}
