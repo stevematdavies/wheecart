@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventService } from 'src/app/services/event.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
+import { ProductIconService } from '../../services/product-icon.service';
 import { Product } from './Product';
 
 @Component({
@@ -18,13 +18,17 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private eventService: EventService) { }
+    private productIconService: ProductIconService) { }
 
   ngOnInit() {
   }
 
   onAddToCart() {
     this.shoppingCartService.addItem(this.product);
+  }
+
+  getIconForProduct(name: string) {
+    return this.productIconService.getResource(name);
   }
 
 }

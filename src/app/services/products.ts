@@ -7,7 +7,7 @@ export const ProductData = [
   },
   {
     id: 2,
-    name: 'Rectangle',
+    name: 'Square',
     description: 'For once, it’s a great idea to think inside the box.',
     price: 899
   },
