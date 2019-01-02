@@ -46,9 +46,13 @@ export class ShoppingCartService implements OnInit {
 
   addItem(product: Product) {
     const cart = this.getShoppingCart();
-    cart.unshift(product);
-    this.$store('shoppingCart', JSON.stringify(cart));
-    this.updateShoppingCartTotal(product.price, true);
+
+    if (!this.isDuplicate(product)) {
+      cart.unshift(product);
+      this.$store('shoppingCart', JSON.stringify(cart));
+      this.updateShoppingCartTotal(product.price, true);
+    }
+
   }
 
   removeItem(product: Product) {
@@ -56,6 +60,7 @@ export class ShoppingCartService implements OnInit {
     cart = _.remove(cart, (p: Product) => cart.indexOf(p));
     this.$store('shoppingCart', JSON.stringify(cart));
     this.updateShoppingCartTotal(product.price, false);
+    this.eventService.shoppingCartUpdated.emit(this.getShoppingCart());
   }
 
   getShoppingCart() {
@@ -64,13 +69,21 @@ export class ShoppingCartService implements OnInit {
 
   updateShoppingCartTotal(price: number, operator: boolean) {
     const current = this.$get('shoppingCartTotal');
-    const amount = operator ? current + price : current - price;
+    let amount = 0;
+    if (!(this.getShoppingCart().length === 0)) {
+      amount = operator ? current + price : current - price;
+    }
     this.$store('shoppingCartTotal', amount);
     this.eventService.shoppingCartTotalUpdated.emit(amount);
   }
 
   getShoppingCartTotal() {
     return this.$get('shoppingCartTotal');
+  }
+
+  isDuplicate(product: Product) {
+    const result = _.find(this.getShoppingCart(), product);
+    return result !== undefined;
   }
 
 }

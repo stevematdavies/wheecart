@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EventService } from 'src/app/services/event.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { Product } from './Product';
@@ -12,13 +13,17 @@ export class ProductComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor(private shopingCartService: ShoppingCartService) { }
+  duplicateDisabled = false;
+
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private eventService: EventService) { }
 
   ngOnInit() {
   }
 
   onAddToCart() {
-    this.shopingCartService.addItem(this.product);
+    this.shoppingCartService.addItem(this.product);
   }
 
 }
