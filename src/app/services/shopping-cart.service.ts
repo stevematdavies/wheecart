@@ -46,13 +46,9 @@ export class ShoppingCartService implements OnInit {
 
   addItem(product: Product) {
     const cart = this.getShoppingCart();
-
-    if (!this.isDuplicate(product)) {
-      cart.unshift(product);
-      this.$store('shoppingCart', JSON.stringify(cart));
-      this.updateShoppingCartTotal(product.price, true);
-    }
-
+    cart.unshift(product);
+    this.$store('shoppingCart', JSON.stringify(cart));
+    this.updateShoppingCartTotal(product.price, true);
   }
 
   removeItem(product: Product) {
@@ -79,11 +75,6 @@ export class ShoppingCartService implements OnInit {
 
   getShoppingCartTotal() {
     return this.$get('shoppingCartTotal');
-  }
-
-  isDuplicate(product: Product) {
-    const result = _.find(this.getShoppingCart(), product);
-    return result !== undefined;
   }
 
 }

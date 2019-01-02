@@ -12,14 +12,13 @@ export class ShoppingCartItemComponent implements OnInit {
 
   @Input() item: Product;
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  constructor(
+    private shoppingCartService: ShoppingCartService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onRemoveFromCart() {
     this.shoppingCartService.removeItem(this.item);
   }
-
 
 }
