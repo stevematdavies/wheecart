@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { Product } from '../product/Product';
+import { EventService } from './../../services/event.service';
 import { ProductIconService } from './../../services/product-icon.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class ShoppingCartItemComponent implements OnInit {
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private productIconService: ProductIconService) {}
+    private productIconService: ProductIconService,
+    private eventService: EventService) {}
 
   ngOnInit() {}
 
@@ -25,5 +27,17 @@ export class ShoppingCartItemComponent implements OnInit {
 
   getIconForProduct(name: string) {
     return this.productIconService.getResource(name);
+  }
+
+  increaseQuantity() {
+    this.item.quantity++;
+    const incrementor = this.item.price * this.item.quantity;
+    this.eventService.shoppingCartTotalUpdated.emit(incrementor);
+  }
+
+  decreaseQuantity() {
+    if (this.item.quantity > 1) {
+      this.item.quantity--;
+    }
   }
 }
