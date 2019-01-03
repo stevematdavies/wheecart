@@ -36,8 +36,19 @@
   }
 }
 
+.item-count {
+  color: $color-brand-green;
+  font-weight: 300;
+}
+
 .list-group-item {
   width: 100%;
   background-color: transparent !important;
   border: none !important;
+}
+
+.logo-icon {
+  color: $color-brand-grey-darker;
+  font-size: small;
+  transform: translateY(-8px)
 }

@@ -16,7 +16,7 @@
   border: 1px solid $color-brand-gray;
   transform: translateX(-50%);
   z-index: 10001;
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
 
   &.add-success {
     border: 1px dotted $color-brand-green;
@@ -37,4 +37,11 @@
 
 .alert-text {
   @include actionFontSmall;
+}
+
+.alert-icon-name {
+  font-weight: 300;
+  font-size: 2rem;
+  text-transform: uppercase;
+
 }

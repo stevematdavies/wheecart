@@ -19,10 +19,14 @@
         <div class="col-xs-12">
           <div class="shopping-cart__meta">
             <div class="shopping-cart__meta--title">
-              <span class="logo-text">whee</span> Shopping Cart
+
+              <span class="logo-text">whee</span>
+              Shopping Cart
+              <i class="glyphicon glyphicon-shopping-cart logo-icon"></i>
             </div>
             <div class="shopping-cart__meta--running-total">
-              Your current total is:
+              <span class="item-count">{{shoppingCartItems.length}}</span> items with a
+              current total of:
               <span class="shopping-cart__meta--currency">{{
                 runningTotal | currency: "EUR"
               }}</span>

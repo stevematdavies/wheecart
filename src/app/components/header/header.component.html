@@ -2,13 +2,15 @@
 <app-alert
   [show]="itemAdded"
   [type]="'add-success'"
-  [text]="'Item successfully added to cart!'">
+  [itemName]="addedProductName"
+  [text]="'successfully added to cart!'">
 </app-alert>
 
 <app-alert
   [show]="itemRemoved"
   [type]="'remove-success'"
-  [text]="'Item successfully removed from cart!'">
+  [itemName]="deletedProductName"
+  [text]="'successfully removed from cart!'">
 </app-alert>
 
 
@@ -25,8 +27,8 @@
       *ngIf="!shoppingCartView"
       (click)="navigateTo('cart')">
       <span class="menu-button__action">Shopping Cart</span>
+      <i class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"></i>
       <span class="menu-button__meta">
-        <i class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"></i>
       </span>
       <span
         [class]="shoppingCartItemCount <= 0? 'menu-button__count empty': 'menu-button__count'">

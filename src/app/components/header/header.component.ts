@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   shoppingCartView  = false;
   itemAdded = false;
   itemRemoved = false;
+  addedProductName: string;
+  deletedProductName: string;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -41,7 +43,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
 
     this.itemAddedSub = this.eventService.itemAddedToCart
-      .subscribe(() => {
+      .subscribe((name: string) => {
+        this.addedProductName = name;
         this.itemAdded = true;
         setTimeout(() => {
           this.itemAdded = false;
@@ -49,7 +52,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
 
     this.itemRemovedSub = this.eventService.itemRemovedFromCart
-      .subscribe(() => {
+      .subscribe((name: string) => {
+        this.deletedProductName = name;
         this.itemRemoved = true;
         setTimeout(() => {
           this.itemRemoved = false;
