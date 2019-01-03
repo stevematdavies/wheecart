@@ -20,6 +20,13 @@
         (click)="onRemoveFromCart()"
         [buttonIconClass]="'glyphicon glyphicon-trash'">
       </app-square-button>
+
+      <app-square-button
+        (click)="navigateToInfoView(item.id)"
+        [buttonIconClass]="'glyphicon glyphicon-info-sign'">
+      </app-square-button>
+
+
     </div>
 
   </div>

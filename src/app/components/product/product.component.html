@@ -7,7 +7,9 @@
   </div>
 
   <div class="product__item product__meta">
-    <div class="product__meta--name">{{product.name}}</div>
+    <div class="product__meta--name">
+      {{product.name}}
+    </div>
     <div class="product__meta--description">{{product.description}}</div>
   </div>
 
@@ -16,10 +18,22 @@
   </div>
 
   <div class="product__item product__action ">
+
     <app-square-button
       (click)="onAddToCart()"
       [buttonIconClass]="'glyphicon glyphicon-shopping-cart'">
     </app-square-button>
+
+    <app-square-button *ngIf="!productMode"
+      (click)="onRemoveFromCart(product.id)"
+      [buttonIconClass]="'glyphicon glyphicon-trash'">
+    </app-square-button>
+
+  <app-square-button *ngIf="productMode && !inSolo"
+    (click)="navigateToInfoView(product.id)"
+    [buttonIconClass]="'glyphicon glyphicon-info-sign'">
+  </app-square-button>
+
   </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { Product } from '../product/Product';
@@ -17,7 +18,9 @@ export class ShoppingCartItemComponent implements OnInit {
   constructor(
     private shoppingCartService: ShoppingCartService,
     private productIconService: ProductIconService,
-    private eventService: EventService) {}
+    private eventService: EventService,
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {}
 
@@ -29,15 +32,8 @@ export class ShoppingCartItemComponent implements OnInit {
     return this.productIconService.getResource(name);
   }
 
-  increaseQuantity() {
-    this.item.quantity++;
-    const incrementor = this.item.price * this.item.quantity;
-    this.eventService.shoppingCartTotalUpdated.emit(incrementor);
+  navigateToInfoView(id: number) {
+    this.router.navigate([`item/c/${id}`], { relativeTo: this.route });
   }
 
-  decreaseQuantity() {
-    if (this.item.quantity > 1) {
-      this.item.quantity--;
-    }
-  }
 }

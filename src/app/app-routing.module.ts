@@ -7,7 +7,8 @@ import { SoloViewComponent } from './components/solo-view/solo-view.component';
 
 const routes: Routes = [
   { path: 'products' , component: ProductsComponent},
-  { path: 'products/product/:id', component: SoloViewComponent},
+  { path: 'products/product/:mode/:id', component: SoloViewComponent},
+  { path: 'cart/item/:mode/:id', component: SoloViewComponent},
   { path: 'cart', component: ShoppingCartComponent},
   { path: '', redirectTo: 'products', pathMatch: 'full' }
 ];

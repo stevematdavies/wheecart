@@ -52,5 +52,9 @@
 
   &__action {
     flex: 1;
+    display: inline-flex;
+    > * {
+      margin-right: 1rem;
+    }
   }
 }

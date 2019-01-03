@@ -19,12 +19,15 @@ export class SoloViewComponent implements OnInit {
   product: Product;
   productError = false;
   routerSub: any;
+  productViewMode = true;
 
   ngOnInit() {
     this.routerSub = this.route.params
       .subscribe((params: any) => {
         const id = +params['id'];
+        const mode = params['mode'];
         this.getSelectedProduct(id);
+        this.setViewMode(mode);
       });
   }
 
@@ -33,6 +36,10 @@ export class SoloViewComponent implements OnInit {
     if (!this.product) {
       this.productError = true;
     }
+ }
+
+ setViewMode(mode: string) {
+   this.productViewMode = mode === 'p';
  }
 
 

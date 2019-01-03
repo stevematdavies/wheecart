@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container solo-view">
 
   <div class="row" *ngIf="productError">
     <div class="product-not-found-error">
@@ -12,7 +12,8 @@
       <div class="col-xs-12">
         <span class="back-link">
           <i class="glyphicon glyphicon-arrow-left"></i> back to
-          <a routerLink="/products">&nbsp;Products</a>
+          <a routerLink="/products" *ngIf="productViewMode">&nbsp;Products</a>
+          <a routerLink="/cart" *ngIf="!productViewMode">&nbsp;Shopping Cart</a>
         </span>
       </div>
     </div>
@@ -20,7 +21,8 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="product-view__product">
-          <app-product [product]="product"></app-product>
+          <app-product [product]="product" *ngIf="productViewMode"  [productMode]=true  [inSolo]=true></app-product>
+          <app-product [product]="product" *ngIf="!productViewMode" [productMode]=false [inSolo]=true></app-product>
         </div>
       </div>
     </div>
