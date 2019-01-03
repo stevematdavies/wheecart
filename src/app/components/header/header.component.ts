@@ -13,8 +13,13 @@ import { Product } from './../product/Product';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   shoppingCartItemCount: number;
-  shoppingCartItemAddedSubscription: null;
+  shoppingCartSub: null;
+  appModeSub: null;
+  itemAddedSub: null;
+  itemRemovedSub: null;
   shoppingCartView  = false;
+  itemAdded = false;
+  itemRemoved = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -25,18 +30,38 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.shoppingCartItemCount = this.shoppingCartService.getShoppingCart().length;
-    this.shoppingCartItemAddedSubscription = this.eventService.shoppingCartUpdated
+
+    this.shoppingCartSub = this.eventService.shoppingCartUpdated
     .subscribe((cart: Product[]) => {
-      console.log('updating');
       this.shoppingCartItemCount = cart.length;
     });
-    this.eventService.appModeChanged.subscribe((mode: string) => {
+
+    this.appModeSub = this.eventService.appModeChanged.subscribe((mode: string) => {
       this.shoppingCartView = mode === 'cart';
+    });
+
+    this.itemAddedSub = this.eventService.itemAddedToCart
+      .subscribe(() => {
+        this.itemAdded = true;
+        setTimeout(() => {
+          this.itemAdded = false;
+        }, 1000);
+      });
+
+    this.itemRemovedSub = this.eventService.itemRemovedFromCart
+      .subscribe(() => {
+        this.itemRemoved = true;
+        setTimeout(() => {
+          this.itemRemoved = false;
+        }, 1000);
     });
   }
 
   ngOnDestroy() {
-    this.shoppingCartItemAddedSubscription = null;
+    this.shoppingCartSub = null;
+    this.appModeSub = null;
+    this.itemAddedSub = null;
+    this.itemRemovedSub = null;
   }
 
   navigateTo(endpoint: string) {

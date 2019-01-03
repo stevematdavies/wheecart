@@ -14,6 +14,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { EventService } from './services/event.service';
 import { SoloViewComponent } from './components/solo-view/solo-view.component';
 import { SquareButtonComponent } from './components/shared/square-button/square-button.component';
+import { AlertComponent } from './components/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SquareButtonComponent } from './components/shared/square-button/square-
     ShoppingCartComponent,
     ShoppingCartItemComponent,
     SoloViewComponent,
-    SquareButtonComponent
+    SquareButtonComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { Product } from '../product/Product';
-import { EventService } from './../../services/event.service';
 import { ProductIconService } from './../../services/product-icon.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class ShoppingCartItemComponent implements OnInit {
   constructor(
     private shoppingCartService: ShoppingCartService,
     private productIconService: ProductIconService,
-    private eventService: EventService,
     private route: ActivatedRoute,
     private router: Router) {}
 

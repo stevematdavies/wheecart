@@ -52,6 +52,7 @@ export class ShoppingCartService implements OnInit {
     this.$store('shoppingCart', JSON.stringify(cart));
     this.eventService.shoppingCartUpdated.emit(cart);
     this.updateShoppingCartTotal(product.price, true);
+    this.eventService.itemAddedToCart.emit();
   }
 
   removeItem(product: Product) {
@@ -60,6 +61,7 @@ export class ShoppingCartService implements OnInit {
     this.$store('shoppingCart', JSON.stringify(cart));
     this.updateShoppingCartTotal(product.price, false);
     this.eventService.shoppingCartUpdated.emit(this.getShoppingCart());
+    this.eventService.itemRemovedFromCart.emit();
   }
 
   getShoppingCart() {

@@ -16,11 +16,17 @@
   border: 1px solid $color-shadow-grey-light;
   border-radius: 4px;
   padding: 6px 12px;
+  font-weight: 100;
   font-size: 14px;
   line-height: 1.42857143;
 
   > *:not(:last-child) {
     margin-right: 0.5rem;
+  }
+
+  &.contains {
+   font-weight: 300;
+   color: $color-brand-green;
   }
 
   &__meta {
@@ -35,14 +41,14 @@
     justify-content: center;
     align-items: center;
     font-size: x-small;
-    background-color: $color-brand-red;
+    background-color: $color-brand-green;
     color: $color-brand-white;
     border-radius: 50px;
-    transform: translate(2rem, -14px);
 
     &.empty {
       background-color: $color-shadow-grey-dark;
       color: $color-brand-white;
     }
   }
+
 }

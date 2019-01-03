@@ -7,11 +7,11 @@
   align-items: center;
   background-color: $color-brand-white;
   padding: 1rem;
-  border-bottom: 1px solid rgba(gray, 0.3);
+  border-bottom: 1px solid $color-brand-grey;
 
   &__thumb {
     &--svg {
-      fill: $color-brand-orange;
+      fill: $color-brand-grey-darker;
     }
   }
 

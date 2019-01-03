@@ -30,7 +30,6 @@ export class ShoppingCartComponent implements OnInit {
 
     this.eventService.shoppingCartTotalUpdated
       .subscribe((total: number) => {
-        console.log(total);
         this.runningTotal = total;
       });
   }
