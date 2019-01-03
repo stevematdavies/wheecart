@@ -1,32 +1,47 @@
-<div class="shopping-cart">
-
+<div class="container shopping-cart">
   <div class="row">
     <div class="col-xs-12">
-      <div class="shopping-cart-header">
-              <div class="message" *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0">
-                Your shopping cart is Empty.  Click<a routerLink="/products">&nbsp;here</a>&nbsp;to add items.
-              </div>
-            </div>
+      <div class="shopping-cart__header">
+        <div
+          class="shopping-cart__header--empty-message"
+          *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0">
+          Your shopping cart is Empty.Click<a routerLink="/products"
+            >&nbsp;here</a
+          >&nbsp;to add items.
+        </div>
       </div>
+    </div>
   </div>
 
   <div class="row" *ngIf="shoppingCartItems.length > 0">
     <div class="col-xs-12">
-      <div class="running-total">
-        <span class="running-total__amount">{{shoppingCartItems.length}}</span>
-        Items: Total price:  <span class="running-total__amount">{{runningTotal}}</span>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="shopping-cart__meta">
+            <div class="shopping-cart__meta--title">
+              <span class="logo-text">whee</span> Shopping Cart
+            </div>
+            <div class="shopping-cart__meta--running-total">
+              Your current total is:
+              <span class="shopping-cart__meta--currency">{{
+                runningTotal | currency: "EUR"
+              }}</span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let item of shoppingCartItems">
-            <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+      <ul class="list-group shopping-cart-list">
+        <li class="list-group-item" *ngFor="let item of shoppingCartItems">
+          <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
         </li>
       </ul>
+
     </div>
   </div>
-
 </div>

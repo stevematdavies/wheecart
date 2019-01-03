@@ -12,6 +12,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { EventService } from './services/event.service';
+import { SoloViewComponent } from './components/solo-view/solo-view.component';
+import { SquareButtonComponent } from './components/shared/square-button/square-button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EventService } from './services/event.service';
     ProductsComponent,
     ProductComponent,
     ShoppingCartComponent,
-    ShoppingCartItemComponent
+    ShoppingCartItemComponent,
+    SoloViewComponent,
+    SquareButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+@import "./../../../variables";
+
+.square-button {
+  display: flex;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  height: 6.4rem;
+  width: 6.4rem;
+  background-color: $color-brand-white;
+  font-size: 3.2rem;
+  text-align: center;
+  padding: 2px;
+  border-radius: 4px;
+  color: $color-shadow-grey-dark;
+
+  &:hover {
+    box-shadow: .2rem .2rem  .4rem  $color-shadow-grey;
+    transform: translateY(-1px);
+    color: $color-brand-orange;
+  }
+
+  &:active {
+    box-shadow: .1rem .1rem  .2rem  $color-shadow-grey-light;
+  }
+}

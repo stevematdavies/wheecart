@@ -1,17 +1,25 @@
 <div class="shopping-cart-item">
 
-  <div class="row">
-    <div class="col-xs-4">
-        <svg class="product-icon">
-              <use [attr.href]="getIconForProduct(item.name)"></use>
+    <div class="shopping-cart-item__thumb">
+        <svg class="shopping-cart-item__thumb--svg">
+            <use [attr.href]="getIconForProduct(item.name)"></use>
         </svg>
     </div>
-    <div class="col-xs-2">{{item.name }}</div>
-    <div class="col-xs-2">{{item.description }}</div>
-    <div class="col-xs-2">unit price: {{item.price}}</div>
-    <div class="col-xs-2">
-        <button class="btn btn-danger" (click)="onRemoveFromCart()">
-          <i class="glyphicon glyphicon-trash"></i>
-        </button>
-      </div>
+
+    <div class="shopping-cart-item__meta">
+      <div class="shopping-cart-item__meta--name">{{item.name}}</div>
+      <div class="shopping-cart-item__meta--description">{{item.description}}</div>
+    </div>
+
+    <div class="shopping-cart-item__price">
+      <div class="shopping-cart-item__price--currency">{{item.price | currency:'EUR'}}</div>
+    </div>
+
+    <div class="shopping-cart-item__action">
+      <app-square-button
+        (click)="onRemoveFromCart()"
+        [buttonIconClass]="'glyphicon glyphicon-trash'">
+      </app-square-button>
+    </div>
+
   </div>

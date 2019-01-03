@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container products">
 
   <div class="row">
     <div class="col-xs-12">
-        <div class="product-header">
-            Choose from our amazing range of shapes...
+        <div class="products__header">
+            Choose from our amazing range of <span class="logo-text large">whee</span> shapes...
         </div>
     </div>
   </div>
-
+  <br><br>
   <div class="row">
     <div class="col-xs-12">
-      <ul class="list-group">
+      <ul class="list-group products__list">
           <li class="list-group-item" *ngFor="let product of products">
             <app-product [product]="product"></app-product>
           </li>

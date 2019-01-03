@@ -1,7 +1,7 @@
+@import "./../../variables";
+
 .title {
-  font-size: 4rem;
   margin-right: 1rem;
-  font-family: 'Pacifico', cursive;
 }
 
 .cart-menu {
@@ -13,18 +13,17 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border: 1px solid rgba(gray,0.3);
+  border: 1px solid $color-shadow-grey-light;
   border-radius: 4px;
-  padding:6px 12px;
+  padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
 
-  > *:not(:last-child){
-    margin-right: .5rem;
+  > *:not(:last-child) {
+    margin-right: 0.5rem;
   }
 
   &__meta {
-
     display: inline-flex;
     align-items: center;
   }
@@ -36,15 +35,14 @@
     justify-content: center;
     align-items: center;
     font-size: x-small;
-    background-color: red;
-    color: white;
+    background-color: $color-brand-red;
+    color: $color-brand-white;
     border-radius: 50px;
     transform: translate(2rem, -14px);
 
     &.empty {
-      background-color: grey;
-      color: lightgray;
+      background-color: $color-shadow-grey-dark;
+      color: $color-brand-white;
     }
   }
-
 }

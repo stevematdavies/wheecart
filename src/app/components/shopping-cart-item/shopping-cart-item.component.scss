@@ -1,0 +1,56 @@
+@import "./../../mixins";
+@import "./../../variables";
+
+.shopping-cart-item {
+  width: 80vw;
+  display: inline-flex;
+  align-items: center;
+  background-color: $color-brand-white;
+  padding: 1rem;
+  border: 1px solid $color-shadow-grey-light;
+  border-radius: 4px;
+  box-shadow: 0.4rem 0.4rem 0.8rem $color-shadow-grey;
+
+  &__thumb {
+    &--svg {
+      fill: $color-brand-orange;
+    }
+  }
+
+  &__meta {
+    flex: 1;
+    margin-right: 4rem;
+    text-align: left;
+    &--name {
+      font-size: 2.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    &--description {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+      letter-spacing: 0.1rem;
+      font-weight: 100;
+      color: $color-brand-grey-darker;
+    }
+  }
+
+  &__price {
+    flex: 1;
+    align-self: center;
+    justify-self: center;
+    margin-right: 4rem;
+
+    &--currency {
+      font-size: 4rem;
+      font-weight: 100;
+      letter-spacing: 0.2rem;
+    }
+  }
+
+  &__action {
+    flex: 1;
+  }
+}

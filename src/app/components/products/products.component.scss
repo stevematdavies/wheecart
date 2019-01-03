@@ -1,11 +1,25 @@
-@import './../../mixins';
+@import "./../../mixins";
+@import "./../../variables";
 
-.product-header {
+.products {
   width: 100%;
-  margin-bottom: 2rem;
-  @include actionFontLarge;
+  height: 100%;
+  text-align: center;
+
+  &__header {
+    margin-bottom: 2rem;
+    @include actionFontLarge;
+  }
+
+  &__list {
+  }
 }
 
 .heavier {
   font-weight: 300;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  border: none !important;
 }

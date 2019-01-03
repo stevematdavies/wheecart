@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="row" *ngIf="productError">
+    <div class="product-not-found-error">
+      Sorry, but there is no product with this ID, please try
+      <a routerLink="/products">&nbsp;another</a>
+    </div>
+  </div>
+
+  <div *ngIf="!productError" class="product-view">
+    <div class="row">
+      <div class="col-xs-12">
+        <span class="back-link">
+          <i class="glyphicon glyphicon-arrow-left"></i> back to
+          <a routerLink="/products">&nbsp;Products</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="product-view__product">
+          <app-product [product]="product"></app-product>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

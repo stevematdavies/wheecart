@@ -1,0 +1,54 @@
+@import './mixins';
+
+// Colors
+$color-black: rgb(0, 0, 0);
+$color-pink: rgb(239, 74, 141);
+$color-brand-gray: rgb(235, 235, 235);
+$color-gradient-start: rgb(215, 215, 215);
+$color-gradient-end: rgb(255, 255, 255);
+$color-brand-orange: orange;
+$color-brand-red: red;
+$color-brand-green: rgba(green, 0.8);
+$color-brand-white: white;
+$color-brand-grey: rgb(235, 235, 235);
+$color-brand-grey-darker: rgba(gray, 0.8);
+$color-shadow-grey-dark: rgba(gray, 0.9);
+$color-shadow-grey: rgba(gray, 0.5);
+$color-shadow-grey-light: rgba(gray, 0.3);
+
+.logo-text {
+  font-family: "Pacifico", cursive;
+  color: $color-brand-red;
+
+  &:after {
+    content: "\2122";
+    font-family: serif;
+    font-size: 2.5rem;
+  }
+
+  &--small {
+    font-size: 2rem;
+  }
+
+  &--medium {
+    font-size: 2.6rem;
+  }
+
+  &.large {
+    font-size: 3rem;
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  @include actionFontSmall;
+  margin-bottom: 1rem;
+
+  cursor: pointer;
+  > i {
+    line-height: 1.7rem;
+    margin-right: 0.8rem;
+  }
+}

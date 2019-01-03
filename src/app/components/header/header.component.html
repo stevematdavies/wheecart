@@ -1,26 +1,35 @@
 <nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a routerLink="/products" class="navbar-brand title" href="#">
+      <span class="logo-text large">whee</span>
+    </a>
+  </div>
 
-      <div class="navbar-header">
-        <a class="navbar-brand title" href="#">whee</a>
-      </div>
+  <div class="navbar-text navbar-right cart-menu">
+    <div
+      class="menu-button shopping-cart"
+      *ngIf="!shoppingCartView"
+      (click)="navigateTo('cart')"
+    >
+      <span class="menu-button__action">View Shopping Cart</span>
+      <span class="menu-button__meta">
+        <i
+          class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"
+        ></i>
+      </span>
+      <span
+        [class]="
+          shoppingCartItemCount <= 0
+            ? 'menu-button__count empty'
+            : 'menu-button__count'
+        "
+        >{{ shoppingCartItemCount }}</span
+      >
+    </div>
 
-      <div class="navbar-text navbar-right cart-menu">
-
-        <div class="menu-button shopping-cart" *ngIf="!shoppingCartView" (click)="navigateTo('cart')">
-            <span class="menu-button__action">View Shopping Cart</span>
-            <span class="menu-button__meta">
-              <i class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"></i>
-            </span>
-            <span
-              [class]="shoppingCartItemCount <= 0? 'menu-button__count empty': 'menu-button__count'">{{shoppingCartItemCount}}</span>
-          </div>
-
-          <div class="menu-button home" *ngIf="shoppingCartView" (click)="navigateTo('products')">
-              <span class="menu-button__action">Go to Products</span>
-              <span class="menu-button__meta">
-                <i class="glyphicon glyphicon-list menu-button__meta--icon"></i>
-              </span>
-            </div>
-
-      </div>
-  </nav>
+    <span class="back-link" *ngIf="shoppingCartView">
+      <i class="glyphicon glyphicon-arrow-left"></i> back to
+      <a routerLink="/products">&nbsp;Products</a>
+    </span>
+  </div>
+</nav>
