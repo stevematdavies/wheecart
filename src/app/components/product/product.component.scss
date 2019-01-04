@@ -1,58 +1,7 @@
-@import "./../../mixins";
-@import "./../../variables";
-
 .product {
-  width: 80vw;
-  display: inline-flex;
+  width: 100%;
+  display: flex;
   align-items: center;
-  background-color: $color-brand-white;
-  padding: 1rem;
-  border-bottom: 1px solid $color-brand-grey;
-
-  &__thumb {
-    &--svg {
-      fill: $color-brand-grey-darker;
-    }
-  }
-
-  &__meta {
-    flex: 1;
-    margin-right: 4rem;
-    &--name {
-      text-align: left;
-      font-size: 2.8rem;
-      font-weight: 300;
-      letter-spacing: 0.1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    &--description {
-      font-size: 1.8rem;
-      line-height: 3.2rem;
-      font-weight: 100;
-      color: $color-brand-grey-darker;
-      text-align: justify;
-    }
-  }
-
-  &__price {
-    flex: 1;
-    align-self: center;
-    justify-self: center;
-    margin-right: 4rem;
-
-    &--currency {
-      font-size: 4rem;
-      font-weight: 100;
-      letter-spacing: 0.2rem;
-    }
-  }
-
-  &__action {
-    flex: 1;
-    display: inline-flex;
-    > * {
-      margin-right: 1rem;
-    }
-  }
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

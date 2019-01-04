@@ -1,5 +1,4 @@
-
-<app-alert
+<!-- <app-alert
   [show]="itemAdded"
   [type]="'add-success'"
   [itemName]="addedProductName"
@@ -11,34 +10,26 @@
   [type]="'remove-success'"
   [itemName]="deletedProductName"
   [text]="'successfully removed from cart!'">
-</app-alert>
+</app-alert> -->
 
-
-<nav class="navbar navbar-default">
-  <div class="navbar-header">
-    <a routerLink="/products" class="navbar-brand title" href="#">
-      <span class="logo-text large">whee</span>
-    </a>
-  </div>
-
-  <div class="navbar-text navbar-right cart-menu">
-    <div
-      [class]="shoppingCartItemCount <= 0 ? 'menu-button shopping-cart' : 'menu-button shopping-cart contains' "
-      *ngIf="!shoppingCartView"
-      (click)="navigateTo('cart')">
-      <span class="menu-button__action">Shopping Cart</span>
-      <i class="glyphicon glyphicon-shopping-cart menu-button__meta--icon"></i>
-      <span class="menu-button__meta">
-      </span>
-      <span
-        [class]="shoppingCartItemCount <= 0? 'menu-button__count empty': 'menu-button__count'">
-        {{ shoppingCartItemCount }}
-      </span>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsible-data" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </button>
+            <a class="navbar-brand" routerLink="">
+              <span class="logo-text logo-text--large">Whee</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="collapsible-data">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/cart">
+                  <i class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart
+                  &nbsp;<span class="badge">{{shoppingCartItemCount}}</span>
+                </a></li>
+            </ul>
+        </div>
     </div>
-
-    <span class="back-link" *ngIf="shoppingCartView">
-      <i class="glyphicon glyphicon-arrow-left"></i> back to
-      <a routerLink="/products">&nbsp;Products</a>
-    </span>
-  </div>
 </nav>

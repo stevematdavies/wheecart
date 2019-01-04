@@ -1,4 +1,4 @@
-<div class="container shopping-cart">
+<!-- <div class="container shopping-cart">
   <div class="row">
     <div class="col-xs-12">
       <div class="shopping-cart__header">
@@ -49,3 +49,38 @@
     </div>
   </div>
 </div>
+ -->
+
+ <div class="container shopping-cart">
+
+    <div class="row shopping-cart-header">
+      <div class="col-xs-12">
+
+          <div *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0" class="alert alert-warning">
+            Your shopping cart is Empty.Click<a class="alert-link " routerLink="/products">&nbsp;here</a>&nbsp;to add items.
+          </div>
+
+         <div *ngIf="shoppingCartItems">
+            <h5 class="text-center">
+              <span class="logo-text">Whee</span> Shopping Cart.
+              {{shoppingCartItems.length}} items with a current total of: {{runningTotal | currency: "EUR"}}
+            </h5>
+          </div>
+
+
+      </div>
+    </div>
+
+   <!--  <div class="row">
+      <div class="col-xs-12">
+       <div class="list-group">
+           <app-product
+            class="list-group-item"
+            [product]="product"
+            [productMode]="true"
+            [inSolo]="false"
+            *ngFor="let product of products"></app-product>
+        </div>
+      </div>
+    </div> -->
+  </div>

@@ -1,41 +1,45 @@
-<div class="product">
+<div class="row">
+  <div class="col-xs-12">
+    <div class="product">
 
-  <div class="product__item product__thumb">
-      <svg class="product__thumb--svg">
-          <use [attr.href]="getIconForProduct(product.name)"></use>
-      </svg>
-  </div>
+      <div class="product__item">
+          <svg class="product__thumb--svg">
+            <use [attr.href]="getIconForProduct(product.name)"></use>
+          </svg>
+      </div>
 
-  <div class="product__item product__meta">
-    <div class="product__meta--name">
-      {{product.name}}
+      <div class="product__item">
+          <h3 class="panel-title">{{ product.name }}</h3>
+          <h4>{{ product.description }}</h4>
+          <h5 class="text-right">{{ product.price | currency: 'EUR'}}</h5>
+      </div>
+
+      <div class="product__item">
+          <button type="button" class="btn btn-default">
+              <i class="glyphicon glyphicon-info-sign"></i>
+          </button>
+          <button type="button" class="btn btn-default" *ngIf="productMode" (click)="onAddToCart()">
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          </button>
+          <button type="button" class="btn btn-default" *ngIf="!productMode">
+              <i class="glyphicon glyphicon-trash"></i>
+          </button>
+      </div>
+
     </div>
-    <div class="product__meta--description">{{product.description}}</div>
   </div>
-
-  <div class="product__item product__price">
-    <div class="product__price--currency">{{product.price | currency:'EUR'}}</div>
-  </div>
-
-  <div class="product__item product__action ">
-
-    <app-square-button
-      (click)="onAddToCart()"
-      [buttonIconClass]="'glyphicon glyphicon-shopping-cart'">
-    </app-square-button>
-
-    <app-square-button *ngIf="!productMode"
-      (click)="onRemoveFromCart(product.id)"
-      [buttonIconClass]="'glyphicon glyphicon-trash'">
-    </app-square-button>
-
-  <app-square-button *ngIf="productMode && !inSolo"
-    (click)="navigateToInfoView(product.id)"
-    [buttonIconClass]="'glyphicon glyphicon-info-sign'">
-  </app-square-button>
-
-  </div>
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
