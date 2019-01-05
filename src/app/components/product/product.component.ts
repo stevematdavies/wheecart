@@ -1,9 +1,11 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { ProductIconService } from '../../services/product-icon.service';
 import { Product } from './Product';
+
 
 @Component({
   selector: 'app-product',
@@ -15,16 +17,22 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Input() productMode: boolean;
   @Input() inSolo: boolean;
-
   duplicateDisabled = false;
+  mobileResponseBreakPointReached = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
     private productIconService: ProductIconService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
+    this.breakpointObserver
+      .observe(['(max-width: 800px)'])
+          .subscribe((state: BreakpointState) => {
+            this.mobileResponseBreakPointReached = state.matches;
+          });
   }
 
   onAddToCart() {

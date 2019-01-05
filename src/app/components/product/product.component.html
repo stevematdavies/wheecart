@@ -19,7 +19,7 @@
           <div class="product__item product__action--price">{{ product.price | currency: 'EUR'}}</div>
 
 
-          <button type="button" class="btn btn-default">
+          <button type="button" class="btn btn-default" *ngIf="!mobileResponseBreakPointReached">
               <i class="glyphicon glyphicon-info-sign"></i>
           </button>
 
