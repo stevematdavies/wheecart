@@ -1,0 +1,23 @@
+@import '../../../colors';
+
+@media only screen and(max-width: 800px) {
+
+  .logo-text {
+    color: $color-text;
+  }
+
+  .navbar {
+    background-color: $color-primary;
+    color: $color-text;
+    border: 0;
+    box-shadow: 2px 0 3px black;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    color: $color-text !important;
+  }
+  .badge {
+    background-color: $color-text !important;
+    color: black;
+  }
+}

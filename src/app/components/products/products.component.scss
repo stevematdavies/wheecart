@@ -1,3 +1,27 @@
-.products-header {
-  margin-bottom: 2rem;
+.products {
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+
+}
+
+.list-group-item {
+  border: none;
+}
+
+@media only screen and(max-width: 800px) {
+
+  .list-group-item {
+      background-color: transparent;
+  }
+
+  .logo-text {
+    font-size: 4rem;
+  }
+
+  .products__header h5 {
+    font-size: 1.6rem;
+  }
 }

@@ -1,32 +1,25 @@
-<div class="shopping-cart-item">
+ <div class="row">
+   <div class="col-xs-12">
+     <div class="cart-item">
 
-    <div class="shopping-cart-item__thumb">
-        <svg class="shopping-cart-item__thumb--svg">
-            <use [attr.href]="getIconForProduct(item.name)"></use>
-        </svg>
-    </div>
+      <div class="cart-item__item cart-item__meta">
+          <h3>{{ item.name }}</h3>
+          <h4>{{ item.description }}</h4>
+      </div>
 
-    <div class="shopping-cart-item__meta">
-      <div class="shopping-cart-item__meta--name">{{item.name}}</div>
-      <div class="shopping-cart-item__meta--description">{{item.description}}</div>
-    </div>
+      <div class="cart-item__item cart-item__price">
+        <h2>{{ item.price | currency: 'EUR'}}</h2>
+      </div>
 
-    <div class="shopping-cart-item__price">
-      <div class="shopping-cart-item__price--currency">{{item.price | currency:'EUR'}}</div>
-    </div>
+      <div class="cart-item__item cart-item__button-group">
+          <button type="button" class="btn btn-default">
+              <i class="glyphicon glyphicon-info-sign"></i>
+          </button>
+          <button type="button" class="btn btn-default">
+              <i class="glyphicon glyphicon-trash" (click)="onRemoveFromCart()"></i>
+          </button>
+      </div>
 
-    <div class="shopping-cart-item__action">
-      <app-square-button
-        (click)="onRemoveFromCart()"
-        [buttonIconClass]="'glyphicon glyphicon-trash'">
-      </app-square-button>
-
-      <app-square-button
-        (click)="navigateToInfoView(item.id)"
-        [buttonIconClass]="'glyphicon glyphicon-info-sign'">
-      </app-square-button>
-
-
-    </div>
-
-  </div>
+     </div>
+   </div>
+ </div>

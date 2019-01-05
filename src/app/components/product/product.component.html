@@ -2,28 +2,35 @@
   <div class="col-xs-12">
     <div class="product">
 
-      <div class="product__item">
-          <svg class="product__thumb--svg">
-            <use [attr.href]="getIconForProduct(product.name)"></use>
-          </svg>
+
+      <div class="product__item product__svg product__response-cover">
+          <app-shapes [shape]="product.name"></app-shapes>
       </div>
 
-      <div class="product__item">
-          <h3 class="panel-title">{{ product.name }}</h3>
-          <h4>{{ product.description }}</h4>
-          <h5 class="text-right">{{ product.price | currency: 'EUR'}}</h5>
+      <div class=" product__item product__meta">
+        <div class="product__meta--name">{{ product.name }}</div>
+        <div class="product__meta--description">{{ product.description }}</div>
+
       </div>
 
-      <div class="product__item">
+
+      <div class="product__item product__action">
+
+          <div class="product__item product__action--price">{{ product.price | currency: 'EUR'}}</div>
+
+
           <button type="button" class="btn btn-default">
               <i class="glyphicon glyphicon-info-sign"></i>
           </button>
+
           <button type="button" class="btn btn-default" *ngIf="productMode" (click)="onAddToCart()">
             <i class="glyphicon glyphicon-shopping-cart"></i>
           </button>
+
           <button type="button" class="btn btn-default" *ngIf="!productMode">
               <i class="glyphicon glyphicon-trash"></i>
           </button>
+
       </div>
 
     </div>

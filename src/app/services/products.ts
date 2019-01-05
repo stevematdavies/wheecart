@@ -8,7 +8,7 @@ export const ProductData = [
   },
   {
     id: 2,
-    name: 'Square',
+    name: 'Rectangle',
     description: 'For once, it’s a great idea to think inside the box.',
     price: 899,
     quantity: 1
