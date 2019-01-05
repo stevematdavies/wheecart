@@ -2,62 +2,53 @@
 @import '../../../colors';
 
 .product {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap:1rem;
-  padding: 1rem;
-  grid-auto-rows:  minmax(125px, auto);
-  grid-template-columns: repeat(autofit);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-items: center;
-  border-bottom: 1px dotted $color-primary-light;
+  padding: 1rem;
+  border-bottom: 1px solid $color-primary-light;
 
-  &__svg {
-    grid-row: span 2;
-    grid-column: 1 / 2;
-    align-items: center;
-  }
+ &__item {
+   margin-right: 2rem;
+ }
 
   &__meta {
-    grid-row: span 2;
-    grid-column: 2;
-    font-weight: 100;
-    justify-self: left;
-    align-self: center;
+    width: 100%;
 
     &--name {
       font-size: 3rem;
       font-weight: 300;
       color: $color-primary;
+      text-align: left;
     }
 
     &--description {
       font-size: 1.8rem;
       font-weight: 400;
+      text-align: left;
     }
   }
 
-
-  &__action {
-
-    grid-row: span 2;
-    grid-column: 3;
-    justify-self: left;
-    align-self: center;
-
-    > button {
-      margin-right: .5rem;
-    }
+  &__footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     &--price {
-      grid-row: 1;
-      grid-column: 3;
       font-size: 2.5rem;
       font-weight: 400;
       color: $color-primary-dark;
     }
-  }
 
+    &--button-group {
+      display: flex;
+      flex-wrap: wrap;
+      > button {
+        margin-right: .5rem;
+      }
+    }
+  }
 }
 
 @media only screen and(max-width: 800px) {
@@ -68,54 +59,49 @@
     flex-direction: column;
     align-items: center;
     justify-items: space-around;
-    border: none;
     @include brand-box-shadow;
     background-color: $color-text;
+    border-bottom: none;
     padding: 0;
-    overflow: hidden;
 
     &__response-cover {
       height: 50%;
       width:100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: $color-primary;
-      border-bottom: 1px solid $color-primary-dark;
-
     }
 
     &__meta {
+      padding: 1.5rem;
+
       &--name {
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: 300;
+      }
+
+      &--description {
+        font-size: 2.8rem;
       }
     }
 
     &__item {
+      margin-right: 0;
       margin-bottom: 1rem;
-      padding: 1rem;
     }
 
-    &__action {
-      width: 100%;
-      text-align: right;
+    &__footer {
+      align-items: center;
+      padding: 1rem 1rem;
 
-      &--navigation {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
+      &--button-group {
+        margin-top: 1rem;
       }
 
       &--price {
-        color: $color-primary-dark;
-        font-weight: 400;
-
-        &.lg {
-          font-weight: 100;
-          font-size: 4rem;
-        }
+        font-size: 2rem;
       }
-
     }
   }
 }

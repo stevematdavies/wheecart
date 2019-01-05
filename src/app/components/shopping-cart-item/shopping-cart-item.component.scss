@@ -4,9 +4,8 @@
 .cart-item {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
   border-bottom: 1px solid $color-primary-light;
 
   &__meta {
@@ -55,6 +54,7 @@
     justify-items: space-around;
     border: none;
     background-color: $color-text;
+    border-bottom: 1px dotted $color-primary-light;
 
     &__meta {
       &--name {
@@ -65,9 +65,13 @@
     &__item {
       margin-bottom: 1rem;
       padding: 1rem;
+
     }
 
     &__action {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       &--price {
         color: $color-primary-dark;
       }
