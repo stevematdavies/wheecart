@@ -1,4 +1,4 @@
-<!-- <app-totals-box></app-totals-box> -->
+<app-totals-box></app-totals-box>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -15,17 +15,32 @@
         <div class="collapse navbar-collapse navbar-right" id="collapsible-data">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#" class="link" (click)="showTotalsDialog($event)">
+                  <a
+                    data-target="#collapsible-data"
+                    data-toggle="collapse"
+                    (click)="showTotalsDialog($event)">
                         <i class="glyphicon glyphicon-eye-open"></i> Show totals
                   </a>
-              </li>
-                <li><a routerLink="/cart">
-                  <i class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart
-                  &nbsp;<span class="badge">{{shoppingCartItemCount}}</span>
-                </a></li>
-                <li><a routerLink="/products">
-                  <i class="glyphicon glyphicon-list-alt"></i> Products
-                </a></li>
+                </li>
+
+                <li>
+                  <a
+                    data-target="#collapsible-data"
+                    data-toggle="collapse"
+                    (click)="navigateTo($event, 'cart')">
+                      <i class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart
+                      &nbsp;<span class="badge">{{shoppingCartItemCount}}</span>
+                  </a>
+                </li>
+
+                <li>
+                    <a
+                      data-target="#collapsible-data"
+                      data-toggle="collapse"
+                      (click)="navigateTo($event, 'products')">
+                    <i class="glyphicon glyphicon-list-alt"></i> Products
+                  </a>
+                </li>
             </ul>
         </div>
     </div>
