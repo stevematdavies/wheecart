@@ -6,7 +6,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid $color-primary-light;
 
   &__meta {
     grid-row: span 2;
@@ -16,6 +15,7 @@
     align-self: center;
 
     &--name {
+      @include titleText;
       color: $color-primary;
       font-size: 3rem;
       font-weight: 300;
@@ -42,8 +42,6 @@
     align-self: center;
   }
 
-
-
 }
 
 @media only screen and(max-width: 800px) {
@@ -54,7 +52,6 @@
     justify-items: space-around;
     border: none;
     background-color: $color-text;
-    border-bottom: 1px dotted $color-primary-light;
 
     &__meta {
       &--name {

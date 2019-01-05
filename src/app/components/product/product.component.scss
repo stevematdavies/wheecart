@@ -16,8 +16,9 @@
     width: 100%;
 
     &--name {
+      @include titleText;
       font-size: 3rem;
-      font-weight: 300;
+      font-weight: 100;
       color: $color-primary;
       text-align: left;
     }

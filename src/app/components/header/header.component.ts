@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -28,7 +29,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private shoppingCartService: ShoppingCartService,
     private eventService: EventService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    public breakpointObserver: BreakpointObserver) {
   }
 
   ngOnInit() {
@@ -60,7 +62,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.itemRemoved = false;
         }, 1000);
     });
+
+    this.responiveObserver();
   }
+
+  responiveObserver() {
+    this.breakpointObserver
+    .observe(['(max-width: 800px)'])
+        .subscribe((state: BreakpointState) => {
+          this.validateView();
+        });
+  }
+
+  validateView() {
+    this.shoppingCartView = this.shoppingCartView;
+  }
+
+
 
   ngOnDestroy() {
     this.shoppingCartSub = null;
