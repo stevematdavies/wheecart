@@ -1,0 +1,14 @@
+<div class="totals-box" *ngIf="isVisible">
+    <div class="totals-box__header">Shopping Cart Totals</div>
+    <div class="totals-box__content">
+      <div class="totals-box__content--total">Cart item count: <strong>{{cartItemCount}}</strong></div>
+      <div class="totals-box__content--total">Cart total: <strong>{{cartPriceTotal | currency: 'EUR'}}</strong></div>
+    </div>
+    <div class="totals-box__footer">
+        <button type="button" class="close" aria-label="Close" (click)="toggle()">
+            <span aria-hidden="true">
+              <i class="glyphicon glyphicon-eye-close"></i>
+            </span>
+        </button>
+    </div>
+</div>

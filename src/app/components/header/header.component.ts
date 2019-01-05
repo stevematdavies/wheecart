@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   itemRemoved = false;
   addedProductName: string;
   deletedProductName: string;
+  totalsDialogIsVisible = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -71,6 +72,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateTo(endpoint: string) {
     this.router.navigate([endpoint], { relativeTo: this.route });
     this.eventService.appModeChanged.emit(endpoint);
+  }
+
+  showTotalsDialog(event: any) {
+    event.preventDefault();
+    this.eventService.toggleTotalsDialog.emit(true);
   }
 
 }

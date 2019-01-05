@@ -3,21 +3,25 @@
      <div class="cart-item">
 
       <div class="cart-item__item cart-item__meta">
-          <h3>{{ item.name }}</h3>
-          <h4>{{ item.description }}</h4>
+          <div class="cart-item__meta--name">{{ item.name }}</div>
+          <div class="cart-item__meta--description">{{ item.description }}</div>
+          <span class="cart-item__meta--price">{{ item.price | currency: 'EUR'}}</span>
       </div>
 
-      <div class="cart-item__item cart-item__price">
-        <h2>{{ item.price | currency: 'EUR'}}</h2>
-      </div>
 
-      <div class="cart-item__item cart-item__button-group">
-          <button type="button" class="btn btn-default">
+      <div class="cart-item__item cart-item__action">
+
+          <button
+              type="button"
+              class="btn btn-default"
+              (click)="navigateToInfoView(item.id)">
               <i class="glyphicon glyphicon-info-sign"></i>
           </button>
-          <button type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-trash" (click)="onRemoveFromCart()"></i>
+
+          <button type="button" class="btn btn-default" (click)="onRemoveFromCart(item)">
+            <i class="glyphicon glyphicon-trash"></i>
           </button>
+
       </div>
 
      </div>

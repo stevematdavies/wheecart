@@ -1,3 +1,83 @@
-.cart-item {
+@import '../../../mixins';
+@import '../../../colors';
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 1px solid $color-primary-light;
+
+  &__meta {
+    grid-row: span 2;
+    grid-column: 2;
+    font-weight: 100;
+    justify-self: left;
+    align-self: center;
+
+    &--name {
+      color: $color-primary;
+      font-size: 3rem;
+      font-weight: 300;
+    }
+
+    &--description {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    &--price {
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: $color-primary-dark;
+    }
+
+  }
+
+
+  &__action {
+    grid-row: span 2;
+    grid-column: 3;
+    justify-self: left;
+    align-self: center;
+  }
+
+
+
+}
+
+@media only screen and(max-width: 800px) {
+
+  .cart-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: space-around;
+    border: none;
+    background-color: $color-text;
+    padding: 0;
+    overflow: hidden;
+
+    &__meta {
+      &--name {
+        font-weight: 300;
+      }
+    }
+
+    &__item {
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+
+    &__action {
+
+
+      &--price {
+        color: $color-primary-dark;
+      }
+
+    }
+
+  }
 }

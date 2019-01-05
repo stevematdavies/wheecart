@@ -17,6 +17,7 @@ import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopp
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { SoloViewComponent } from './components/solo-view/solo-view.component';
 import { EventService } from './services/event.service';
+import { TotalsBoxComponent } from './components/totals-box/totals-box.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EventService } from './services/event.service';
     SoloViewComponent,
     SquareButtonComponent,
     AlertComponent,
-    ShapesComponent
+    ShapesComponent,
+    TotalsBoxComponent
   ],
   imports: [
     BrowserModule,

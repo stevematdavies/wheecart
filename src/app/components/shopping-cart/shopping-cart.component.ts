@@ -13,6 +13,7 @@ export class ShoppingCartComponent implements OnInit {
 
   shoppingCartItems: Product[];
   runningTotal: number;
+  totalsBoxVisisble = true;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -36,5 +37,9 @@ export class ShoppingCartComponent implements OnInit {
 
   getRunningTotal() {
     return this.shoppingCartService.getShoppingCartTotal();
+  }
+
+  closeTotalsBox() {
+    this.totalsBoxVisisble = false;
   }
 }

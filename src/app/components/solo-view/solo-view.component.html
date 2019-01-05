@@ -1,10 +1,10 @@
 <div class="container solo-view">
 
-  <div class="row" *ngIf="productError">
-    <div class="product-not-found-error">
-      Sorry, but there is no product with this ID, please try
-      <a routerLink="/products">&nbsp;another</a>
-    </div>
+  <div
+    *ngIf="productError"
+    class="alert alert-warning">
+    Sorry, but there is no product with this ID, please try
+    <a routerLink="/products">&nbsp;another</a>
   </div>
 
   <div *ngIf="!productError" class="product-view">
@@ -21,8 +21,11 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="product-view__product">
-          <app-product [product]="product" *ngIf="productViewMode"  [productMode]=true  [inSolo]=true></app-product>
-          <app-product [product]="product" *ngIf="!productViewMode" [productMode]=false [inSolo]=true></app-product>
+          <app-product
+            [product]="product"
+            [viewMode]="viewMode"
+            [inSolo]=true>
+          </app-product>
         </div>
       </div>
     </div>

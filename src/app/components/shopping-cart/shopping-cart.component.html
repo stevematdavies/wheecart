@@ -1,14 +1,13 @@
-
 <div class="container shopping-cart">
-  <div class="row shopping-cart__title">
-    <h5>
-      <i class="glyphicon glyphicon-shopping-cart"></i>
-      <span class="logo-text"> Whee</span> Shopping Cart.
-    </h5>
-  </div>
+
 
   <div class="row shopping-cart__header">
     <div class="col-xs-12">
+
+        <h5 class="text-center shopping-cart__header--title ">
+           <span class="logo-text">Whee</span> Shopping Cart.
+        </h5>
+
       <div
         *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0"
         class="alert alert-warning">
@@ -24,19 +23,11 @@
           <app-shopping-cart-item
             class="list-group"
             [item]="item"
-            *ngFor="let item of shoppingCartItems"
-          ></app-shopping-cart-item>
+            *ngFor="let item of shoppingCartItems"></app-shopping-cart-item>
         </div>
       </div>
 
-      <div class="row" class="shopping-cart__totals">
-        <div class="col-xs-12">
-          <h4 class="text-right">
-            {{ shoppingCartItems.length }} items with a current total of:
-            {{ runningTotal | currency: "EUR" }}
-          </h4>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

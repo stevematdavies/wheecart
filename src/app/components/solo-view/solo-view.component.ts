@@ -20,6 +20,7 @@ export class SoloViewComponent implements OnInit {
   productError = false;
   routerSub: any;
   productViewMode = true;
+  viewMode: string;
 
   ngOnInit() {
     this.routerSub = this.route.params
@@ -40,6 +41,7 @@ export class SoloViewComponent implements OnInit {
 
  setViewMode(mode: string) {
    this.productViewMode = mode === 'p';
+   this.viewMode = mode === 'p' ? 'product' : 'cart-item';
  }
 
 

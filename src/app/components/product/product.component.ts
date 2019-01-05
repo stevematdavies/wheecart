@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
-import { ProductIconService } from '../../services/product-icon.service';
 import { Product } from './Product';
 
 
@@ -15,41 +14,35 @@ import { Product } from './Product';
 export class ProductComponent implements OnInit {
 
   @Input() product: Product;
-  @Input() productMode: boolean;
+  @Input() viewMode: string;
   @Input() inSolo: boolean;
-  duplicateDisabled = false;
   mobileResponseBreakPointReached = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private productIconService: ProductIconService,
     private route: ActivatedRoute,
     private router: Router,
     public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
     this.breakpointObserver
-      .observe(['(max-width: 800px)'])
+      .observe(['(max-width: 1200px)'])
           .subscribe((state: BreakpointState) => {
             this.mobileResponseBreakPointReached = state.matches;
           });
   }
 
-  onAddToCart() {
-    this.shoppingCartService.addItem(this.product);
+  onAddToCart(product: Product) {
+    this.shoppingCartService.addItem(product);
   }
 
-  getIconForProduct(name: string) {
-    return this.productIconService.getResource(name);
+  onRemoveFromCart(product: Product) {
+    this.shoppingCartService.removeItem(product);
+    this.router.navigate(['cart']);
   }
 
   navigateToInfoView(id: number) {
     this.router.navigate([`product/p/${id}`], { relativeTo: this.route });
-  }
-
-  onRemoveFromCart() {
-    this.shoppingCartService.removeItem(this.product);
-    this.router.navigate(['cart']);
   }
 
 }

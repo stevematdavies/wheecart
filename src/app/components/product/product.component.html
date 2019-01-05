@@ -10,24 +10,38 @@
       <div class=" product__item product__meta">
         <div class="product__meta--name">{{ product.name }}</div>
         <div class="product__meta--description">{{ product.description }}</div>
-
       </div>
 
 
       <div class="product__item product__action">
+!
+          <div class="product__item product__action--price" *ngIf="!inSolo">{{ product.price | currency: 'EUR'}}</div>
+          <div class="product__item product__action--price lg text-center" *ngIf="inSolo">{{ product.price | currency: 'EUR'}}</div>
 
-          <div class="product__item product__action--price">{{ product.price | currency: 'EUR'}}</div>
-
-
-          <button type="button" class="btn btn-default" *ngIf="!mobileResponseBreakPointReached">
+          <button
+              type="button"
+              class="btn btn-default"
+              (click)="navigateToInfoView(product.id)"
+              *ngIf="!inSolo">
+              <small>Get more info </small>
               <i class="glyphicon glyphicon-info-sign"></i>
           </button>
 
-          <button type="button" class="btn btn-default" *ngIf="productMode" (click)="onAddToCart()">
+          <button
+            type="button"
+            class="btn btn-default"
+            (click)="onAddToCart(product)"
+            *ngIf="viewMode !== 'cart-item'">
+            <small>Add to Cart </small>
             <i class="glyphicon glyphicon-shopping-cart"></i>
           </button>
 
-          <button type="button" class="btn btn-default" *ngIf="!productMode">
+          <button
+            type="button"
+            class="btn btn-default"
+            (click)="onRemoveFromCart(product)"
+            *ngIf="viewMode === 'cart-item'">
+              <small>Remove from Cart </small>
               <i class="glyphicon glyphicon-trash"></i>
           </button>
 

@@ -12,5 +12,7 @@ export class EventService {
   @Output() itemAddedToCart: EventEmitter<string> = new EventEmitter<string>();
   @Output() itemRemovedFromCart: EventEmitter<string> = new EventEmitter<string>();
   @Output() appModeChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output() toggleTotalsDialog: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor() { }
 }

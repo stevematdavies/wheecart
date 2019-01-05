@@ -1,7 +1,29 @@
+@import '../../../mixins';
+@import '../../../colors';
+
+
 .shopping-cart {
 
   &__header {
     margin-bottom: 2rem;
+    &--title {
+      margin-bottom: 2rem;
+    }
   }
 
+}
+
+@media only screen and(max-width: 800px) {
+
+  .list-group-item {
+      background-color: transparent;
+  }
+
+  .logo-text {
+    font-size: 4rem;
+  }
+
+  .products__header h5 {
+    font-size: 1.6rem;
+  }
 }

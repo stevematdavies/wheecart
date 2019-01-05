@@ -1,16 +1,4 @@
-<!-- <app-alert
-  [show]="itemAdded"
-  [type]="'add-success'"
-  [itemName]="addedProductName"
-  [text]="'successfully added to cart!'">
-</app-alert>
-
-<app-alert
-  [show]="itemRemoved"
-  [type]="'remove-success'"
-  [itemName]="deletedProductName"
-  [text]="'successfully removed from cart!'">
-</app-alert> -->
+<app-totals-box></app-totals-box>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -23,8 +11,14 @@
               <span class="logo-text logo-text--large">Whee</span>
             </a>
         </div>
+
         <div class="collapse navbar-collapse navbar-right" id="collapsible-data">
             <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" class="link" (click)="showTotalsDialog($event)">
+                        <i class="glyphicon glyphicon-eye-open"></i> Show totals
+                  </a>
+              </li>
                 <li><a routerLink="/cart">
                   <i class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart
                   &nbsp;<span class="badge">{{shoppingCartItemCount}}</span>

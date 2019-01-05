@@ -1,9 +1,9 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { Product } from '../product/Product';
-import { ProductIconService } from './../../services/product-icon.service';
 
 @Component({
   selector: 'app-shopping-cart-item',
@@ -13,21 +13,24 @@ import { ProductIconService } from './../../services/product-icon.service';
 export class ShoppingCartItemComponent implements OnInit {
 
   @Input() item: Product;
+  mobileResponseBreakPointReached = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private productIconService: ProductIconService,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router,
+    public breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit() {}
-
-  onRemoveFromCart() {
-    this.shoppingCartService.removeItem(this.item);
+  ngOnInit() {
+    this.breakpointObserver
+    .observe(['(max-width: 800px)'])
+        .subscribe((state: BreakpointState) => {
+          this.mobileResponseBreakPointReached = state.matches;
+        });
   }
 
-  getIconForProduct(name: string) {
-    return this.productIconService.getResource(name);
+  onRemoveFromCart(item: Product) {
+    this.shoppingCartService.removeItem(item);
   }
 
   navigateToInfoView(id: number) {
