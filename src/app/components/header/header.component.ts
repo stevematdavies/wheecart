@@ -69,8 +69,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.itemRemovedSub = null;
   }
 
-  navigateTo(event: any, endpoint: string) {
-    event.preventDefault();
+  navigate(endpoint: string) {
     this.router.navigate([endpoint], { relativeTo: this.route });
     this.eventService.appModeChanged.emit(endpoint);
   }

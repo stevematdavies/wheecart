@@ -3,7 +3,7 @@
   <div class="row shopping-cart__header">
     <div class="col-xs-12">
       <h5 class="text-center shopping-cart__header--title ">
-          <span class="logo-text">Whee</span> Shopping Cart.
+          <span class="logo-text logo-text--large">Whee</span> Shopping Cart.
       </h5>
     </div>
   </div>
@@ -11,6 +11,7 @@
   <div
       *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0"
       class="alert alert-warning">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
       Your shopping cart is Empty.Click<a class="alert-link "routerLink="/products">&nbsp;here</a>&nbsp;to add items.
   </div>
 
