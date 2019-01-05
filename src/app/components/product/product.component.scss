@@ -99,6 +99,13 @@
       width: 100%;
       text-align: right;
 
+      &--navigation {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+      }
+
       &--price {
         color: $color-primary-dark;
         font-weight: 400;

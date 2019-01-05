@@ -1,7 +1,6 @@
-<div class="row">
+<div class="row container">
   <div class="col-xs-12">
     <div class="product">
-
 
       <div class="product__item product__svg product__response-cover">
           <app-shapes [shape]="product.name"></app-shapes>
@@ -17,6 +16,19 @@
 !
           <div class="product__item product__action--price" *ngIf="!inSolo">{{ product.price | currency: 'EUR'}}</div>
           <div class="product__item product__action--price lg text-center" *ngIf="inSolo">{{ product.price | currency: 'EUR'}}</div>
+
+          <div class="product__item product__action--navigation">
+
+            <button class="btn btn-link" routerLink="/products" *ngIf="inSolo && viewMode=== 'product'">
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                &nbsp;Return to Products
+              </button>
+
+              <button class="btn btn-link" routerLink="/cart" *ngIf="inSolo && viewMode=== 'cart-item'">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                &nbsp; Return to Shopping Cart
+              </button>
+
 
           <button
               type="button"
@@ -44,6 +56,8 @@
               <small>Remove from Cart </small>
               <i class="glyphicon glyphicon-trash"></i>
           </button>
+
+        </div>
 
       </div>
 

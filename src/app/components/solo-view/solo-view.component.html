@@ -7,26 +7,14 @@
     <a routerLink="/products">&nbsp;another</a>
   </div>
 
-  <div *ngIf="!productError" class="product-view">
-    <div class="row">
-      <div class="col-xs-12">
-        <span class="back-link">
-          <i class="glyphicon glyphicon-arrow-left"></i> back to
-          <a routerLink="/products" *ngIf="productViewMode">&nbsp;Products</a>
-          <a routerLink="/cart" *ngIf="!productViewMode">&nbsp;Shopping Cart</a>
-        </span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="product-view__product">
-          <app-product
-            [product]="product"
-            [viewMode]="viewMode"
-            [inSolo]=true>
-          </app-product>
-        </div>
+  <div class="row product-view" *ngIf="!productError" >
+    <div class="col-xs-12">
+      <div class="product-view__product">
+        <app-product
+          [product]="product"
+          [viewMode]="viewMode"
+          [inSolo]=true>
+        </app-product>
       </div>
     </div>
   </div>
