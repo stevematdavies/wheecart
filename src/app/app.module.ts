@@ -21,7 +21,6 @@ import { WarningBoxComponent } from './components/shared/warning-box/warning-box
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { SoloViewComponent } from './components/solo-view/solo-view.component';
-import { TotalsBoxComponent } from './components/totals-box/totals-box.component';
 import { notifierConfig } from './notifier.config';
 import { EventService } from './services/event.service';
 
@@ -37,7 +36,6 @@ import { EventService } from './services/event.service';
     SquareButtonComponent,
     AlertComponent,
     ShapesComponent,
-    TotalsBoxComponent,
     HeaderLogoComponent,
     WarningBoxComponent,
     PageNotFoundComponent,
