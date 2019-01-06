@@ -1,29 +1,29 @@
 <div class="row container">
-   <div class="col-xs-12">
-     <div class="cart-item">
-
+  <div class="col-xs-12">
+    <div class="cart-item">
       <div class="cart-item__item cart-item__meta">
-          <div class="cart-item__meta--name">{{ item.name }}</div>
-          <div class="cart-item__meta--description">{{ item.description }}</div>
-          <span class="cart-item__meta--price">{{ item.price | currency: 'EUR'}}</span>
+        <div class="cart-item__meta--name">{{ item.name }}</div>
+        <div class="cart-item__meta--description">{{ item.description }}</div>
+        <span class="cart-item__meta--price">{{
+          item.price | currency: "EUR"}}
+        </span>
       </div>
-
 
       <div class="cart-item__action">
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="navigateToInfoView(item.id)">
+            <i class="glyphicon glyphicon-info-sign"></i>
+        </button>
 
-          <button
-              type="button"
-              class="btn btn-default"
-              (click)="navigateToInfoView(item.id)">
-              <i class="glyphicon glyphicon-info-sign"></i>
-          </button>
-
-          <button type="button" class="btn btn-default" (click)="onRemoveFromCart(item)">
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="onRemoveFromCart(item)">
             <i class="glyphicon glyphicon-trash"></i>
-          </button>
-
+        </button>
       </div>
-
-     </div>
-   </div>
- </div>
+    </div>
+  </div>
+</div>

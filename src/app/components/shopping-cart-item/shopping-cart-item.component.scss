@@ -1,12 +1,11 @@
-@import '../../../mixins';
-@import '../../../variables';
+@import "../../../mixins";
+@import "../../../variables";
 
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  box-shadow: inset 0 -.2rem .2rem -.2rem $color-shape-stroke;
 
   &__meta {
     grid-row: span 2;
@@ -29,9 +28,7 @@
       font-weight: 300;
       color: $color-brand-red;
     }
-
   }
-
 
   &__action {
     grid-row: span 2;
@@ -39,11 +36,9 @@
     justify-self: left;
     align-self: center;
   }
-
 }
 
 @media only screen and(max-width: 800px) {
-
   .cart-item {
     display: flex;
     align-items: center;
@@ -58,7 +53,6 @@
     &__item {
       margin-bottom: 1rem;
       padding: 1rem;
-
     }
 
     &__action {
@@ -68,8 +62,6 @@
       &--price {
         color: $color-primary-dark;
       }
-
     }
-
   }
 }
