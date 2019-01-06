@@ -23,9 +23,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this. cartItemsCount = this.shoppingCartService.getShoppingCart().length;
-    this.eventService.appModeChanged.emit('products');
     this.products = this.dataService.getAllProducts();
-
     this.cartSub = this.eventService.shoppingCartUpdated
       .subscribe((cart: Product[]) => {
         this.cartItemsCount = cart.length;
