@@ -1,16 +1,19 @@
-@import '../../../../variables';
+@import "../../../../variables";
 
-rect, circle, polygon {
+rect,
+circle,
+polygon {
   fill: $color-shape-fill;
   stroke: $color-shape-stroke;
-  stroke-width: .4rem;
+  stroke-width: 0.4rem;
 }
 
 @media only screen and(max-width: 800px) {
-
-  rect, circle, polygon {
+  rect,
+  circle,
+  polygon {
     fill: $color-shape-fill;
     stroke: $color-shape-stroke;
-    stroke-width: .2rem;
+    stroke-width: 0.2rem;
   }
 }
