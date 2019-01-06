@@ -1,11 +1,12 @@
 @import '../../../mixins';
-@import '../../../colors';
+@import '../../../variables';
 
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  box-shadow: inset 0 -.2rem .2rem -.2rem $color-shape-stroke;
 
   &__meta {
     grid-row: span 2;
@@ -16,20 +17,17 @@
 
     &--name {
       @include titleText;
-      color: $color-primary;
-      font-size: 3rem;
-      font-weight: 300;
     }
 
     &--description {
       font-size: 1.8rem;
-      font-weight: 400;
+      font-weight: 100;
     }
 
     &--price {
       font-size: 2.6rem;
-      font-weight: 400;
-      color: $color-primary-dark;
+      font-weight: 300;
+      color: $color-brand-red;
     }
 
   }
@@ -50,8 +48,6 @@
     display: flex;
     align-items: center;
     justify-items: space-around;
-    border: none;
-    background-color: $color-text;
 
     &__meta {
       &--name {

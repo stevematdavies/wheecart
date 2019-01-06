@@ -1,13 +1,10 @@
-@import './mixins';
-
-// Colors
 $color-black: rgb(0, 0, 0);
 $color-pink: rgb(239, 74, 141);
 $color-brand-gray: rgb(235, 235, 235);
 $color-gradient-start: rgb(215, 215, 215);
 $color-gradient-end: rgb(255, 255, 255);
 $color-brand-orange: orange;
-$color-brand-red: red;
+
 $color-brand-green: rgba(green, 0.8);
 $color-brand-white: white;
 $color-brand-grey: rgb(235, 235, 235);
@@ -15,36 +12,48 @@ $color-brand-grey-darker: rgba(gray, 0.8);
 $color-shadow-grey-dark: rgba(gray, 0.9);
 $color-shadow-grey: rgba(gray, 0.5);
 $color-shadow-grey-light: rgba(gray, 0.3);
+$color-primary: #d85300;
+$color-primary-light: #ff8339;
+$color-primary-dark: #9f2000;
+$color-text: #BBC1B3;
+$color-black: black;
 
-.logo-text {
-  font-family: "Pacifico", cursive;
-  color: $color-brand-red;
+$color-bg-1: #BBC1B3;
+$color-bg-shad: rgb(154, 156, 150);
+$color-text-1: #6E7463;
+$color-text-2: rgb(146, 150, 141);
+$color-text-3: rgb(103, 105, 99);
+$color-border-mobile: rgb(45, 46, 44);
+$color-text-highlight: #A9A36D;
+$color-shape-fill: #688379;
+$color-shape-stroke: rgb(212, 216, 203);
+$color-brand-red: #803233;
 
 
-  &--small {
-    font-size: 2rem;
+.hdr-logo {
+
+  &__main {
+    color: $color-shape-stroke;
+    font-size: 4rem;
+    font-family: 'Pacifico', cursive;
   }
 
-  &--medium {
-    font-size: 2.5rem;
+  &__sub {
+    font-family: 'Roboto', serif;
+    letter-spacing: .3rem;
+    font-weight: 400;
+    color: $color-shape-fill;
   }
 
-  &--large {
-    font-size: 2.8rem;
-  }
 }
 
-.gi-small {
-  font-size: 1.5rem;
+.list-group-item {
+  border: none;
+  background-color: transparent;
 }
 
-
-.gi-medium {
-  font-size: 2rem;
+.btn-default {
+  background-color: $color-shape-fill !important;
+  color: $color-shape-stroke !important;
+  text-transform: uppercase;
 }
-
-
-.gi-large {
-  font-size: 3rem;
-}
-

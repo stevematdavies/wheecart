@@ -2,20 +2,16 @@
 
   <div class="row shopping-cart__header">
     <div class="col-xs-12">
-      <h5 class="text-center shopping-cart__header--title ">
-          <div class="logo-text logo-text--large">Whee</div> Shopping Cart.
-          <div class="subtext">You have <strong>{{shoppingCartItems.length}}</strong> item(s) in your cart!</div>
-      </h5>
+        <app-header-logo [subText]="'|cart|'"></app-header-logo>
     </div>
   </div>
 
-  <div
-      *ngIf="!shoppingCartItems || shoppingCartItems.length <= 0"
-      class="alert alert-warning">
-      <span class="glyphicon glyphicon-exclamation-sign"></span>
-      Your shopping cart is Empty.Click<a class="alert-link "routerLink="/products">&nbsp;here</a>&nbsp;to add items.
-  </div>
-
+  <app-warning-box
+    [warningCondition]="!shoppingCartItems || shoppingCartItems.length <= 0"
+    [warningText]="'Your shopping cart is Empty'"
+    [actionLink]="'/products'"
+    [actionLinkPostText]="'to add items'">
+  </app-warning-box>
 
   <div class="row shopping-cart__items" *ngIf="shoppingCartItems && shoppingCartItems.length > 0">
     <div class="col-xs-12">

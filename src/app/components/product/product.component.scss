@@ -1,12 +1,12 @@
 @import '../../../mixins';
-@import '../../../colors';
+@import '../../../variables';
 
 .product {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid $color-primary-light;
+  background-color: transparent;
 
  &__item {
    margin-right: 2rem;
@@ -17,9 +17,6 @@
 
     &--name {
       @include titleText;
-      font-size: 3rem;
-      font-weight: 100;
-      color: $color-primary;
       text-align: left;
     }
 
@@ -27,6 +24,7 @@
       font-size: 1.8rem;
       font-weight: 400;
       text-align: left;
+      color: $color-text-2;
     }
   }
 
@@ -37,9 +35,9 @@
     justify-content: space-between;
 
     &--price {
-      font-size: 2.5rem;
-      font-weight: 400;
-      color: $color-primary-dark;
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-brand-red;
     }
 
     &--button-group {
@@ -61,8 +59,7 @@
     align-items: center;
     justify-items: space-around;
     @include brand-box-shadow;
-    background-color: $color-text;
-    border-bottom: none;
+    margin-bottom: 1rem;
     padding: 0;
 
     &__response-cover {
@@ -71,7 +68,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $color-primary;
+      background-color: $color-text-2;
+      border-bottom: 1px solid $color-text;
+      border-radius: 4px;
     }
 
     &__meta {
@@ -105,4 +104,9 @@
       }
     }
   }
+}
+
+
+.list-group-item {
+  background: none !important;
 }

@@ -1,6 +1,8 @@
-.solo-view {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
+@import '../../../variables';
 
+.solo-view {
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+}

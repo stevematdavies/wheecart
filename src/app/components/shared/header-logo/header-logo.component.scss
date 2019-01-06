@@ -1,0 +1,23 @@
+@import '../../../../variables';
+
+.hdr-logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &__main {
+    color: $color-shape-stroke;
+    font-size: 4rem;
+    font-family: 'Pacifico', cursive;
+  }
+
+  &__sub {
+    font-family: 'Roboto', serif;
+    letter-spacing: .3rem;
+    font-weight: 400;
+    color: $color-shape-fill;
+  }
+
+}

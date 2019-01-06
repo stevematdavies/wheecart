@@ -1,4 +1,3 @@
-@import './colors';
 @import './variables';
 @import './mixins';
 
@@ -12,10 +11,13 @@
 body {
   box-sizing: border-box;
   padding-top: 70px; // for top fixed navbar
+  background-color: $color-bg-1;
 }
 
 @media only screen and(max-width: 800px) {
   body {
     font-family: 'Roboto', serif !important;
   }
+
+
 }

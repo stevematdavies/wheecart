@@ -1,0 +1,28 @@
+@import '../../../../variables';
+
+.main-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  line-height: 1.2rem;
+
+
+  &__title {
+    font-size: x-large;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    color: $color-brand-red;
+    margin-bottom: .8rem;
+  }
+
+  &__brandtext {
+    font-size: x-small;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: $color-brand-white;
+  }
+
+}
