@@ -1,0 +1,15 @@
+<div class="cc-header" *ngIf="show">
+
+  <div class="col-xs-6 cc-header__meta" (click)="navigateTo('/cart')">
+      <div *ngIf="showCount">
+        <span class="glyphicon glyphicon-shopping-cart"></span><strong> {{cartItemsCount}}</strong>
+      </div>
+      <ng-content></ng-content>
+    </div>
+
+    <div class="col-xs-6 cc-header__logo">
+        <app-header-logo [subText]="logoSubText"></app-header-logo>
+    </div>
+
+</div>
+

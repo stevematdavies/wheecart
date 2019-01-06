@@ -59,9 +59,9 @@ export class ShoppingCartService implements OnInit {
     let cart = this.getShoppingCart();
     cart = _.remove(cart, (p: Product) => cart.indexOf(p));
     this.$store('shoppingCart', JSON.stringify(cart));
-    this.updateShoppingCartTotal(product.price, false);
     this.eventService.shoppingCartUpdated.emit(this.getShoppingCart());
     this.eventService.itemRemovedFromCart.emit(product.name);
+    this.updateShoppingCartTotal(product.price, false);
   }
 
   getShoppingCart() {

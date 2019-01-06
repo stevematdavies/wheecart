@@ -1,16 +1,10 @@
 <div class="container shopping-cart">
 
   <div class="row shopping-cart__header">
-
-    <div class="col-xs-6 shopping-cart__header--meta">
-          <div>Items: <strong> {{shoppingCartItems.length}}</strong></div>
-          <div>Total:<strong> {{runningTotal | currency: 'EUR'}}</strong></div>
-    </div>
-
-    <div class="col-xs-6 shopping-cart__header--logo">
-        <app-header-logo [subText]="'|cart|'"></app-header-logo>
-    </div>
-
+      <app-header-w-cartcount [show]="true" [showCount]="false" [logoSubText]="'|cart|'">
+        <div>Items: <strong> {{shoppingCartItems.length}}</strong></div>
+        <div>Total:<strong> {{runningTotal | currency: 'EUR'}}</strong></div>
+      </app-header-w-cartcount>
   </div>
 
   <app-warning-box

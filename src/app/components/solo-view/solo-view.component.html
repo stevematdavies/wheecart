@@ -1,17 +1,11 @@
 <div class="container solo-view">
 
   <div class="row solo-view__header">
-
-    <div class="col-xs-6 solo-view__header--meta" (click)="navigateTo('/cart')">
-      <div *ngIf="viewMode === 'product'">
-        <span class="glyphicon glyphicon-shopping-cart"></span><strong> {{cartItemsCount}}</strong>
-      </div>
-    </div>
-
-    <div class="col-xs-6">
-        <app-header-logo
-          [subText]="!productError? '|'+product.name+'|' : '|No Product found| '"></app-header-logo>
-    </div>
+    <app-header-w-cartcount
+      [show]="true"
+      [showCount]="true"
+      [logoSubText]="!productError? '|'+product.name+'|' : '|No Product found| '">
+    </app-header-w-cartcount>
   </div>
 
   <app-warning-box

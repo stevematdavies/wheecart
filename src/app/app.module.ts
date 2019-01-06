@@ -21,6 +21,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { SoloViewComponent } from './components/solo-view/solo-view.component';
 import { notifierConfig } from './notifier.config';
 import { EventService } from './services/event.service';
+import { HeaderWCartcountComponent } from './components/shared/header-w-cartcount/header-w-cartcount.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { EventService } from './services/event.service';
     WarningBoxComponent,
     PageNotFoundComponent,
     MainLogoComponent,
+    HeaderWCartcountComponent,
   ],
   imports: [
     BrowserModule,

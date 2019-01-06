@@ -1,0 +1,25 @@
+@import "../.././../../variables";
+
+.cc-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    flex: 1;
+  }
+
+  &__meta {
+    flex: 1;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    color: $color-shape-fill;
+    cursor: pointer;
+  }
+}
