@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from '../product/Product';
 import { DataService } from './../../services/data.service';
@@ -19,7 +20,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private shoppingCartService: ShoppingCartService,
     private dataService: DataService,
-    private eventService: EventService) { }
+    private eventService: EventService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this. cartItemsCount = this.shoppingCartService.getShoppingCart().length;
@@ -32,5 +35,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.cartSub = null;
+  }
+
+  navigateTo(endpoint: string) {
+    this.router.navigate([endpoint], { relativeTo: this.route });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EventService } from 'src/app/services/event.service';
 
 import { ShoppingCartService } from './../../services/shopping-cart.service';
@@ -9,11 +9,12 @@ import { Product } from './../product/Product';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   shoppingCartItems: Product[];
   runningTotal: number;
-  totalsBoxVisisble = true;
+  cartUpdateSub: null;
+  cartTotalSub: null;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -24,22 +25,19 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartItems = this.shoppingCartService.getShoppingCart();
     this.runningTotal = this.shoppingCartService.getShoppingCartTotal();
 
-    this.eventService.shoppingCartUpdated
+    this.cartUpdateSub = this.eventService.shoppingCartUpdated
       .subscribe((cart: Product[]) => {
         this.shoppingCartItems = cart;
       });
 
-    this.eventService.shoppingCartTotalUpdated
+    this.cartTotalSub = this.eventService.shoppingCartTotalUpdated
       .subscribe((total: number) => {
         this.runningTotal = total;
       });
   }
 
-  getRunningTotal() {
-    return this.shoppingCartService.getShoppingCartTotal();
-  }
-
-  closeTotalsBox() {
-    this.totalsBoxVisisble = false;
+  ngOnDestroy() {
+    this.cartUpdateSub =  null;
+    this.cartTotalSub =  null;
   }
 }
