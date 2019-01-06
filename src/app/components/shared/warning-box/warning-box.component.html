@@ -1,8 +1,11 @@
-<div *ngIf="warningCondition" class="alert alert-warning wheee-warning">
-  <span class="glyphicon glyphicon-exclamation-sign"></span>
-  <span class="whee-warning__text">{{warningText}}</span>
-  <span class="whee-warning__action-link">
-   Click<a class="alert-link" (click)="navigateTo(actionLink)">&nbsp;here</a>&nbsp;
-   <span class="whee-warning__action-link--post-text">{{actionLinkPostText}}</span>
-  </span>
+<div *ngIf="warningCondition" class="whee-warning">
+
+  <!-- <span class="glyphicon glyphicon-exclamation-sign whee-warning__icon"></span>&nbsp; -->
+
+  <div class="whee-warning__text">
+    <div class="whee-warning__text--header">{{warningText}}</div>
+    <div class="whee-warning__text--sub">
+      Click <span class="whee-warning__link" (click)="navigateTo(actionLink)">&nbsp;here</span>&nbsp;{{actionLinkPostText}}
+    </div>
+  </div>
 </div>

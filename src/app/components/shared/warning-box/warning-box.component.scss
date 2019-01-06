@@ -1,0 +1,54 @@
+@import '../../../../variables';
+@import '../../../../mixins';
+
+.whee-warning {
+  padding: 1rem;
+  width: 100%;
+  background-color: rgba($color-text-2, .5);
+  font-family: 'Roboto', sans-serif;
+  color: $color-shape-stroke;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  @include brand-box-shadow;
+
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+
+    &--header {
+      font-size: large;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    &--sub {
+      font-size: medium;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    color: $color-brand-red;
+    font-weight: 300;
+    &:hover {
+      cursor: pointer;
+      color: rgba($color-brand-red, .5);
+    }
+  }
+}
+
+@media only screen and(max-width: 800px) {
+  .whee-warning {
+    &__text {
+      &--header {
+        font-size: medium;
+      }
+      &--sub {
+        text-align: left;
+      }
+    }
+  }
+}

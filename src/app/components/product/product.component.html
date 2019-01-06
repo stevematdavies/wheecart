@@ -20,28 +20,28 @@
           <div class="product__footer--price lg text-center" *ngIf="inSolo">{{ product.price | currency: 'EUR'}}</div>
 
 
-          <div class="product__footer--button-group">
+          <div class="product__footer--button-group button-group">
             <button
-              class="btn btn-link"
+              class="btn btn-default"
               routerLink="/products"
               *ngIf="inSolo && viewMode=== 'product'">
-              <i class="glyphicon glyphicon-shopping-cart"></i>
-              &nbsp;Return to Products
+                <small>Return to Products</small>&nbsp;
+                <i class="glyphicon glyphicon-shopping-cart"></i>
             </button>
 
             <button
-              class="btn btn-link"
+              class="btn btn-default"
               routerLink="/cart"
               *ngIf="inSolo && viewMode=== 'cart-item'">
-              <i class="glyphicon glyphicon-list-alt"></i>
-              &nbsp; Return to Shopping Cart
+                <small>Return to Shopping Cart</small>&nbsp;
+                <i class="glyphicon glyphicon-list-alt"></i>
             </button>
 
             <button
                 class="btn btn-default"
                 (click)="navigateToInfoView(product.id)"
                 *ngIf="!inSolo">
-                <small>Get more info </small>
+                <small>Get more info</small>&nbsp;
                 <i class="glyphicon glyphicon-info-sign"></i>
             </button>
 
@@ -49,7 +49,7 @@
               class="btn btn-default"
               (click)="onAddToCart(product)"
               *ngIf="viewMode !== 'cart-item'">
-              <small>Add to Cart </small>
+              <small>Add to Cart</small>&nbsp;
               <i class="glyphicon glyphicon-shopping-cart"></i>
             </button>
 
@@ -57,7 +57,7 @@
               class="btn btn-default"
               (click)="onRemoveFromCart(product)"
               *ngIf="viewMode === 'cart-item'">
-                <small>Remove from Cart </small>
+                <small>Remove from Cart</small>&nbsp;
                 <i class="glyphicon glyphicon-trash"></i>
             </button>
             </div>

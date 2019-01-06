@@ -1,6 +1,12 @@
 @import '../../../variables';
+@import '../../../mixins';
 
 .solo-view {
+
+  &__product-view {
+    @include brand-box-shadow;
+    border-radius: 4px;
+  }
 
   &__header {
     margin-bottom: 2rem;
