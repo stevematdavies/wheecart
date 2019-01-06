@@ -21,7 +21,6 @@ export class WarningBoxComponent implements OnInit {
   }
 
   navigateTo(endpoint: string) {
-    console.log(endpoint);
     this.router.navigate([endpoint], { relativeTo: this.route });
   }
 
