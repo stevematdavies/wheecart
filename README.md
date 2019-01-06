@@ -74,7 +74,7 @@ The solution provided in this repository aims to prioritize and meet the above s
   <a name="ts"></a>
   - [x] __Testing__
 
-    Whilst the tooling used to build the app includes automatic basic test creation, it does not nescessarily provide a fully integrated and wide coverage test framework. Front end testing isnt always so facile to set up and can be time consuming (though nescessary). However, in this case, I gave testing the lowest priority in the alloted timeframe. As I felt, the task had more crucial areas to illustrate my skillset, whlst not reducing the importancce of good tests. 
+    Whilst the tooling used to build the app includes automatic basic test creation, it does not nescessarily provide a fully integrated and wide coverage test framework. IN fact the bundled KArma / Jasmine default specs are incredibly cryptic, and its not advised to accept them if writing new tests. Front end testing isnt always so facile to set up and can be time consuming (though nescessary). However, in this case, I gave testing the lowest priority in the alloted timeframe. As I felt, the task had more crucial areas to illustrate my skillset, whlst not reducing the importancce of good tests. So the tests run but fail (with some very strange errors). For this task, assume testing is not implmented, or run them at your own risk!
 
 [top](#top)
 <a name="arc"></a>
