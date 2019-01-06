@@ -12,11 +12,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
-import { AlertComponent } from './components/shared/alert/alert.component';
 import { HeaderLogoComponent } from './components/shared/header-logo/header-logo.component';
 import { MainLogoComponent } from './components/shared/main-logo/main-logo.component';
 import { ShapesComponent } from './components/shared/shapes/shapes.component';
-import { SquareButtonComponent } from './components/shared/square-button/square-button.component';
 import { WarningBoxComponent } from './components/shared/warning-box/warning-box.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
@@ -33,8 +31,6 @@ import { EventService } from './services/event.service';
     ShoppingCartComponent,
     ShoppingCartItemComponent,
     SoloViewComponent,
-    SquareButtonComponent,
-    AlertComponent,
     ShapesComponent,
     HeaderLogoComponent,
     WarningBoxComponent,
