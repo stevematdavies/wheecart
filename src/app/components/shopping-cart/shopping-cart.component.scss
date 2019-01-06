@@ -1,7 +1,6 @@
-@import '../../../variables';
+@import "../../../variables";
 
 .shopping-cart {
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -12,17 +11,16 @@
     }
 
     &--meta {
-      flex:1;
+      flex: 1;
       font-size: small;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      font-family: 'Roboto', serif;
+      font-family: "Roboto", serif;
       font-weight: 300;
       color: $color-shape-fill;
     }
-
 
     margin-bottom: 2rem;
   }

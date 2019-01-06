@@ -3,14 +3,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ShoppingCartComponent } from './shopping-cart.component';
 
 describe('ShoppingCartComponent', () => {
-  let component: ShoppingCartComponent;
-  let fixture: ComponentFixture<ShoppingCartComponent>;
+  let component : ShoppingCartComponent;
+  let fixture : ComponentFixture < ShoppingCartComponent >;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ShoppingCartComponent ]
-    })
-    .compileComponents();
+    TestBed
+      .configureTestingModule({declarations: [ShoppingCartComponent]})
+      .compileComponents();
   }));
 
   beforeEach(() => {
