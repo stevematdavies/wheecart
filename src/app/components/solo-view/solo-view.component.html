@@ -2,7 +2,8 @@
 
   <div class="row solo-view__header">
     <div class="col-xs-12">
-        <app-header-logo [subText]="'|'+product.name+'|'"></app-header-logo>
+        <app-header-logo
+          [subText]="!productError? '|'+product.name+'|' : '|No Product found| '"></app-header-logo>
     </div>
   </div>
 
@@ -13,7 +14,7 @@
     [actionLinkPostText]="'to try another'">
   </app-warning-box>
 
-  <div class="row solo-view__product-view" *ngIf="!productError" >
+  <div class="row solo-view__product-view" *ngIf="product && !productError" >
     <div class="col-xs-12">
       <div class="product-view__product">
         <app-product

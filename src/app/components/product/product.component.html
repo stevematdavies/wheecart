@@ -32,7 +32,7 @@
             <button
               class="btn btn-default"
               routerLink="/cart"
-              *ngIf="inSolo && viewMode=== 'cart-item'">
+              *ngIf="inSolo && viewMode=== 'cart'">
                 <small>Return to Shopping Cart</small>&nbsp;
                 <i class="glyphicon glyphicon-list-alt"></i>
             </button>
@@ -48,7 +48,7 @@
             <button
               class="btn btn-default"
               (click)="onAddToCart(product)"
-              *ngIf="viewMode !== 'cart-item'">
+              *ngIf="viewMode !== 'cart'">
               <small>Add to Cart</small>&nbsp;
               <i class="glyphicon glyphicon-shopping-cart"></i>
             </button>
@@ -56,7 +56,7 @@
             <button
               class="btn btn-default"
               (click)="onRemoveFromCart(product)"
-              *ngIf="viewMode === 'cart-item'">
+              *ngIf="viewMode === 'cart'">
                 <small>Remove from Cart</small>&nbsp;
                 <i class="glyphicon glyphicon-trash"></i>
             </button>

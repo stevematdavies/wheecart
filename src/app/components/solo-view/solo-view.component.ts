@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { DataService } from './../../services/data.service';
 import { Product } from './../product/Product';
@@ -9,17 +9,15 @@ import { Product } from './../product/Product';
   templateUrl: './solo-view.component.html',
   styleUrls: ['./solo-view.component.scss']
 })
-export class SoloViewComponent implements OnInit {
+export class SoloViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private route: ActivatedRoute) { }
 
   product: Product;
   productError = false;
   routerSub: any;
-  productViewMode = true;
   viewMode: string;
 
   ngOnInit() {
@@ -32,17 +30,16 @@ export class SoloViewComponent implements OnInit {
       });
   }
 
- getSelectedProduct(id: number) {
-    this.product = this.dataService.getProduct(id);
-    if (!this.product) {
-      this.productError = true;
-    }
- }
+  getSelectedProduct(id: number) {
+      this.product = this.dataService.getProduct(id);
+      this.productError = !(!!this.product);
+  }
 
- setViewMode(mode: string) {
-   this.productViewMode = mode === 'p';
-   this.viewMode = mode === 'p' ? 'product' : 'cart-item';
- }
+  setViewMode(m: string) {
+    this.viewMode = m === 'c' ? 'cart' : 'product';
+  }
 
-
+  ngOnDestroy() {
+    this.routerSub = null;
+  }
 }
