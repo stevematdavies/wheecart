@@ -1,84 +1,65 @@
-
 <div class="row">
   <div class="col-xs-12">
     <div class="product">
-
       <div class="product__item product__response-cover thumb">
-          <app-shapes [shape]="product.name"></app-shapes>
+        <app-shapes [shape]="product.name"></app-shapes>
       </div>
 
-     <div class="product__item product__meta">
+      <div class="product__item product__meta">
         <div class="product__meta--name">{{ product.name }}</div>
         <div class="product__meta--description">{{ product.description }}</div>
       </div>
 
-
       <div class="product__footer">
+        <div class="product__footer--price" *ngIf="!inSolo">
+          {{ product.price | currency: "EUR" }}
+        </div>
+        <div class="product__footer--price lg text-center" *ngIf="inSolo">
+          {{ product.price | currency: "EUR" }}
+        </div>
 
+        <div class="product__footer--button-group button-group">
+          <button
+            class="btn btn-default"
+            routerLink="/products"
+            *ngIf="inSolo && viewMode === 'product'">
+            <small>Return to Products</small>&nbsp;
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          </button>
 
-          <div class="product__footer--price" *ngIf="!inSolo">{{ product.price | currency: 'EUR'}}</div>
-          <div class="product__footer--price lg text-center" *ngIf="inSolo">{{ product.price | currency: 'EUR'}}</div>
+          <button
+            class="btn btn-default"
+            routerLink="/cart"
+            *ngIf="inSolo && viewMode === 'cart'">
+            <small>Return to Shopping Cart</small>&nbsp;
+            <i class="glyphicon glyphicon-list-alt"></i>
+          </button>
 
+          <button
+            class="btn btn-default"
+            (click)="navigateToInfoView(product.id)"
+            *ngIf="!inSolo">
+            <small>Get more info</small>&nbsp;
+            <i class="glyphicon glyphicon-info-sign"></i>
+          </button>
 
-          <div class="product__footer--button-group button-group">
-            <button
-              class="btn btn-default"
-              routerLink="/products"
-              *ngIf="inSolo && viewMode=== 'product'">
-                <small>Return to Products</small>&nbsp;
-                <i class="glyphicon glyphicon-shopping-cart"></i>
-            </button>
+          <button
+            class="btn btn-default"
+            (click)="onAddToCart(product)"
+            *ngIf="viewMode !== 'cart'">
+            <small>Add to Cart</small>&nbsp;
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          </button>
 
-            <button
-              class="btn btn-default"
-              routerLink="/cart"
-              *ngIf="inSolo && viewMode=== 'cart'">
-                <small>Return to Shopping Cart</small>&nbsp;
-                <i class="glyphicon glyphicon-list-alt"></i>
-            </button>
-
-            <button
-                class="btn btn-default"
-                (click)="navigateToInfoView(product.id)"
-                *ngIf="!inSolo">
-                <small>Get more info</small>&nbsp;
-                <i class="glyphicon glyphicon-info-sign"></i>
-            </button>
-
-            <button
-              class="btn btn-default"
-              (click)="onAddToCart(product)"
-              *ngIf="viewMode !== 'cart'">
-              <small>Add to Cart</small>&nbsp;
-              <i class="glyphicon glyphicon-shopping-cart"></i>
-            </button>
-
-            <button
-              class="btn btn-default"
-              (click)="onRemoveFromCart(product)"
-              *ngIf="viewMode === 'cart'">
-                <small>Remove from Cart</small>&nbsp;
-                <i class="glyphicon glyphicon-trash"></i>
-            </button>
-            </div>
+          <button
+            class="btn btn-default"
+            (click)="onRemoveFromCart(product)"
+            *ngIf="viewMode === 'cart'">
+            <small>Remove from Cart</small>&nbsp;
+            <i class="glyphicon glyphicon-trash"></i>
+          </button>
         </div>
       </div>
-
-      </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</div>

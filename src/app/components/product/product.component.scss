@@ -1,5 +1,5 @@
-@import '../../../mixins';
-@import '../../../variables';
+@import "../../../mixins";
+@import "../../../variables";
 
 .product {
   display: flex;
@@ -8,9 +8,9 @@
   padding: 1rem;
   background-color: transparent;
 
- &__item {
-   margin-right: 2rem;
- }
+  &__item {
+    margin-right: 2rem;
+  }
 
   &__meta {
     width: 100%;
@@ -44,14 +44,13 @@
       display: flex;
       flex-wrap: wrap;
       > button {
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
     }
   }
 }
 
 @media only screen and(max-width: 800px) {
-
   .product {
     width: 100%;
     display: flex;
@@ -64,7 +63,7 @@
 
     &__response-cover {
       height: 50%;
-      width:100%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -81,7 +80,7 @@
         font-weight: 300;
       }
 
-      &--description {
+      &--description  {
         font-size: 2.8rem;
       }
     }
@@ -105,7 +104,6 @@
     }
   }
 }
-
 
 .list-group-item {
   background: none !important;
