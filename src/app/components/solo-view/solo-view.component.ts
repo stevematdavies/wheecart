@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { DataService } from './../../services/data.service';
+import { EventService } from './../../services/event.service';
 import { Product } from './../product/Product';
 
 @Component({
@@ -12,15 +15,21 @@ import { Product } from './../product/Product';
 export class SoloViewComponent implements OnInit, OnDestroy {
 
   constructor(
+    private eventService: EventService,
+    private shoppingCartService: ShoppingCartService,
     private dataService: DataService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   product: Product;
   productError = false;
-  routerSub: any;
+  cartItemsCount: number;
+  routerSub: Subscription;
+  cartSub: null;
   viewMode: string;
 
   ngOnInit() {
+
     this.routerSub = this.route.params
       .subscribe((params: any) => {
         const id = +params['id'];
@@ -28,6 +37,13 @@ export class SoloViewComponent implements OnInit, OnDestroy {
         this.getSelectedProduct(id);
         this.setViewMode(mode);
       });
+
+      this.cartSub = this.eventService.shoppingCartUpdated
+        .subscribe((cart: Product[]) => {
+          this.cartItemsCount = cart.length;
+      });
+
+      this.cartItemsCount = this.shoppingCartService.getShoppingCart().length;
   }
 
   getSelectedProduct(id: number) {
@@ -41,5 +57,10 @@ export class SoloViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.routerSub = null;
+    this.cartSub = null;
+  }
+
+  navigateTo(endpoint: string) {
+    this.router.navigate([endpoint], { relativeTo: this.route });
   }
 }

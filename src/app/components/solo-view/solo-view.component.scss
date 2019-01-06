@@ -1,14 +1,29 @@
-@import '../../../variables';
-@import '../../../mixins';
+@import "../../../variables";
+@import "../../../mixins";
 
 .solo-view {
-
-  &__product-view {
-    @include brand-box-shadow;
-    border-radius: 4px;
-  }
-
   &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--logo {
+      flex: 1;
+    }
+
+    &--meta {
+      flex: 1;
+      font-size: large;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-family: "Roboto", serif;
+      font-weight: 300;
+      color: $color-shape-fill;
+      cursor: pointer;
+    }
+
     margin-bottom: 2rem;
   }
 }
