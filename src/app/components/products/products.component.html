@@ -1,9 +1,15 @@
 <div class="container products">
 
   <div class="row products__header">
-    <div class="col-xs-12">
+
+    <div class="col-xs-6 products__header--meta">
+      <div><span class="glyphicon glyphicon-shopping-cart"></span><strong> {{cartItemsCount}}</strong></div>
+    </div>
+
+    <div class="col-xs-6 products__header--logo">
       <app-header-logo [subText]="'|shapes|'"></app-header-logo>
     </div>
+
   </div>
 
   <div class="row products__products">

@@ -2,16 +2,19 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NotifierModule } from 'angular-notifier';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AlertComponent } from './components/shared/alert/alert.component';
 import { HeaderLogoComponent } from './components/shared/header-logo/header-logo.component';
+import { MainLogoComponent } from './components/shared/main-logo/main-logo.component';
 import { ShapesComponent } from './components/shared/shapes/shapes.component';
 import { SquareButtonComponent } from './components/shared/square-button/square-button.component';
 import { WarningBoxComponent } from './components/shared/warning-box/warning-box.component';
@@ -19,9 +22,8 @@ import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopp
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { SoloViewComponent } from './components/solo-view/solo-view.component';
 import { TotalsBoxComponent } from './components/totals-box/totals-box.component';
+import { notifierConfig } from './notifier.config';
 import { EventService } from './services/event.service';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { MainLogoComponent } from './components/shared/main-logo/main-logo.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { MainLogoComponent } from './components/shared/main-logo/main-logo.compo
     NgxWebstorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    NotifierModule.withConfig(notifierConfig)
   ],
   providers: [ShoppingCartService, EventService],
   bootstrap: [AppComponent]

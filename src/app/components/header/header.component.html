@@ -3,7 +3,9 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsible-data" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
-              <i class="glyphicon glyphicon-menu-hamburger"></i>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" routerLink="">
               <app-main-logo></app-main-logo>
@@ -13,30 +15,28 @@
         <div class="collapse navbar-collapse navbar-right" id="collapsible-data">
             <ul class="nav navbar-nav" routerLinkActive="active">
 
-                <li class="nav-item" *ngIf="!shoppingCartView">
+                <li class="nav-item">
                   <a  (click)="navigate('cart')"
+                    class="nav-link"
+                    data-target="#collapsible-data"
+                    data-toggle="collapse">
+                    <span class="inline-labelled">
+                        <span class="glyphicon glyphicon-shopping-cart gi-medium" aria-hidden="true"></span>&nbsp;
+                        <span>Shopping Cart</span>&nbsp;
+                        <span class="badge">{{shoppingCartItemCount}}</span>
+                    </span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a  (click)="navigate('products')"
                       class="nav-link"
                       data-target="#collapsible-data"
                       data-toggle="collapse">
                       <span class="inline-labelled">
-                          <span class="glyphicon glyphicon-shopping-cart gi-medium" aria-hidden="true"></span>
-                           <span>Shopping Cart</span>
-                           <span class="badge">{{shoppingCartItemCount}}</span>
+                        <span class="glyphicon glyphicon-list-alt gi-medium" aria-hidden="true"></span>&nbsp;
+                        Products
                       </span>
-
-                  </a>
-                </li>
-
-                <li class="nav-item" *ngIf="shoppingCartView">
-                    <a  (click)="navigate('products')"
-                        class="nav-link"
-                        data-target="#collapsible-data"
-                        data-toggle="collapse">
-                       <span class="inline-labelled">
-                          <span class="glyphicon glyphicon-list-alt gi-medium" aria-hidden="true"></span>
-                          Products
-                       </span>
-
                     </a>
                   </li>
             </ul>

@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import _ from 'lodash';
-import { LocalStorageService, SessionStorage, SessionStorageService } from 'ngx-webstorage';
+import { LocalStorageService, SessionStorage } from 'ngx-webstorage';
 
 import { Product } from './../components/product/Product';
 import { EventService } from './event.service';
@@ -22,7 +22,7 @@ export class ShoppingCartService implements OnInit {
   };
 
   constructor(
-    private sessStor: SessionStorageService, private eventService: EventService,
+    private eventService: EventService,
     private lclStorage: LocalStorageService) {
   }
 
@@ -51,8 +51,8 @@ export class ShoppingCartService implements OnInit {
     cart.unshift(product);
     this.$store('shoppingCart', JSON.stringify(cart));
     this.eventService.shoppingCartUpdated.emit(cart);
-    this.updateShoppingCartTotal(product.price, true);
     this.eventService.itemAddedToCart.emit(product.name);
+    this.updateShoppingCartTotal(product.price, true);
   }
 
   removeItem(product: Product) {

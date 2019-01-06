@@ -57,3 +57,12 @@ $color-brand-red: #803233;
   color: $color-shape-stroke !important;
   text-transform: uppercase;
 }
+
+
+.notifier__notification--default {
+  font-size: small;
+  text-align: center;
+  color: $color-shape-stroke;
+  font-weight: 300;
+  background-color: $color-border-mobile !important;
+}
