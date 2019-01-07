@@ -24,7 +24,7 @@
 
 * The task given was to complete a shopping cart edit page / app based on basic specs given.
 * The specs outlined general view and flow of main (products) page, and required to add cart funtionality
-* General specs were given on UI items, data was simple based on the [products.js](src/app/services/products.js) file, no back end was needed to be created
+* General specs were given on UI items, data was simple based on the [products.ts](src/app/services/products.js) file, no back end was needed to be created
 * As understood, these were basic requirements, and could be changed (and were), though changes should be justified in follow-up.
 * Sections of the task, could loosley be provided as follows for prioritization:
 
